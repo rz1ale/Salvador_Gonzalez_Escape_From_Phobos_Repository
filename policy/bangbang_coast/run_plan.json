@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "mode": "manual",
+  "manual_session": "new_on_open",
+  "entry": "policy/bangbang_coast/entry.py",
+  "parameters": {},
+  "model": "nominal_model.json",
+  "dependencies": [
+    "policy/bangbang_coast/__init__.py",
+    "policy/bangbang_coast/entry.py",
+    "policy/bangbang_coast/core.py",
+    "policy/bangbang_coast/flight.py",
+    "policy/bangbang_coast/settings.json",
+    "policy/bangbang_coast/run_plan.json",
+    "system_identification/model.py"
+  ],
+  "output_root": "policy/bangbang_coast/run_logs",
+  "schedule": {
+    "cases": [{"id":"BANGBANG_COAST","parameters":{}}],
+    "repetitions_per_case": 1,
+    "repeat_set": {"mode":"fixed","count":1},
+    "order": "listed"
+  },
+  "retry": {
+    "max_retries_per_trial": 0,
+    "retry_on": ["startup_timeout","backend_disconnect","simulation_clock_stall"],
+    "on_exhausted": "pause"
+  },
+  "on_task_failure": "continue",
+  "limits": {
+    "startup_wall_s": 150,
+    "heartbeat_wall_s": 45,
+    "clock_stall_wall_s": 90,
+    "attempt_wall_s": null,
+    "shutdown_wall_s": 30,
+    "task_sim_s": null
+  },
+  "logging": {"state_period_s":0.2}
+}

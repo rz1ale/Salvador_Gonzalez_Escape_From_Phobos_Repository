@@ -1,0 +1,14 @@
+V2 UPDATE 2 - replacement-only patch
+Install destination: STU4-Solution root
+V1 untouched; replaces only files under policy/bangbang_coast_v2/
+Re-select via run_simulation.py after extraction
+Not natively validated; public radar estimated CPA is heuristic
+
+Replacement files (SHA256):
+8c31ffbc691982b5b0d3d1a5ccb22395a81cd53ea715c767a3a2248a04e07d49  policy/bangbang_coast_v2/core.py
+e95ff47da7fea10c8c02a1b40832acc0be423164c36f343aadbe9afa89424382  policy/bangbang_coast_v2/adaptive.py
+058ed2dd486cc29c1a62fa4227b5be6602eae4e67549a1b7d046f1d701b1b0c3  policy/bangbang_coast_v2/flight.py
+ac07edb7e35725777591a0cfeb7671577d6652b8a09ff015b391a54c3f68d4ef  policy/bangbang_coast_v2/settings.json
+9b932f6c809c48a4c27edaf992bce0bc43162065fddd5c77ee7d6f65cc6d7ae2  policy/bangbang_coast_v2/README.txt
+ab7a0f795d94a45ce60ef34fe11e538756e4e479bdfa06e829761438d0411bd1  policy/bangbang_coast_v2/tests/test_policy.py
+a122b7a391a8eee7d9f0a8c90d2fdd4a0d626b23345f888ec4aa02773ec825df  policy/bangbang_coast_v2/tests/test_radar_switch_update2.py

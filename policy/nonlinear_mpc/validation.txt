@@ -1,0 +1,44 @@
+VALIDATION | nonlinear_mpc 0.1.0 | 2026-11-07
+Evidence categories are deliberately distinct.
+
+OFFLINE SOFTWARE: 15 checks cover full run(context) on a mathematical public-
+interface fixture, real numerical subprocess/IPC, owned cleanup/owner expiry,
+canonical delayed-model comparison, allocation/fuel mapping, official-source
+preflight, shared plan validation, midpoint collision and infeasibility rejection.
+Offline runner install/select/check accepted entry.py and smoke_run.json while
+preserving the protected prefix. No native simulator was launched.
+Offline analyzer fixture produced metrics.txt/json, fuel replay and run_metrics.png.
+Shared native-qualified flight/runner files: all 5 baseline hashes unchanged.
+Obstacle package and canonical model backend are reused without modifications.
+
+FUEL CROSS-CHECK: public recorded attempt_001_e9920076, scout campaign
+20261106_054253_3143e1a4, first-to-last logged own-fuel counter increment:
+  observed 14.224158592 kg; predicted 14.256276949 kg;
+  predicted relative error +0.2258%.
+This is ONE existing guard-aborted flight, partly used in model fitting. It is
+not independent validation, a regression/calibration, or a general fuel bound.
+Prediction uses only timestamped public requests and the embedded static matrix.
+
+OFFLINE_MODEL_RESULT (empty radar; no native simulator):
+  model SHA256: e278d6f37c82e5e7c32550bd8c4945a65f790f4c552e6a59c8a52f594a014258
+  Initial own position/quaternion and target from supplied official configuration;
+  zero initial v/omega, constructive progress bootstrap. Receding-horizon direct
+  optimizer defaults: horizon 6 s, stage 2 s, solve budget 2 wall s, lead 3 s.
+  Executed mathematical plant: canonical dynamics at 0.05 s integration mesh;
+  path/arrival samples 0.25 s. No debris, contacts or sensor errors were simulated.
+  Observed modeled arrival: t=230.50 s; distance=47.5551 m;
+  predicted fuel=48.207816 kg; formula estimate=37.7836.
+  This idealized result is BELOW the earlier 60+ target. It establishes a first
+  comparison baseline, not competitive performance. Real obstacles, deadlines,
+  model mismatch and the live entry's recovery/bootstrap can change it.
+
+NATIVE QUALIFICATION: PENDING. Run smoke_run.json manually, then automatically.
+A schedule marked complete is not enough; inspect smoke_passed and activation,
+commands, damage, worker timing and rejection/recovery counters. Native scorer
+alert is authoritative. An observed_arrival receipt remains SCORE_ESTIMATE.
+
+KNOWN LIMITS: local SLSQP optimum and surrogate terminal value; unverified 4 m
+vehicle enclosing radius; radar sphere/clock/statistical assumptions; approximate
+launch plane; uncalibrated fuel extrapolation; no avoidance beyond local forecast.
+Actual solver/SDK timing on the user's Windows/STPro machine is unmeasured.
+No 60+ claim, native safety certificate or official score capture is provided.

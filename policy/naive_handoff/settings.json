@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "label": "boost2_slew9_fullX",
+  "boost_duration_s": 2.0,
+  "boost_thrust_fraction": 1.0,
+  "slew_duration_s": 9.0,
+  "slew_steps": 90,
+  "slew_weights": {
+    "angle": 0.1,
+    "rate": 0.1,
+    "effort": 0.1,
+    "fuel": 1.0,
+    "terminal_angle": 10000.0,
+    "terminal_rate": 10000.0
+  },
+  "tracking_weights": {
+    "angle": 3.0,
+    "rate": 2.0,
+    "effort": 1.0,
+    "terminal_angle": 30.0,
+    "terminal_rate": 10.0
+  },
+  "forward_thrust_fraction": 1.0,
+  "hold_weights": {"angle": 0.8, "rate": 1.5, "effort": 1.0},
+  "feedback_acceleration_limit_rad_s2": 0.12,
+  "hold_pointing_deadband_deg": 0.25,
+  "hold_rate_deadband_rad_s": 0.001,
+  "control_period_s": 0.05,
+  "test_duration_s": null,
+  "prediction_duration_s": 30.0,
+  "status_period_s": 2.0
+}

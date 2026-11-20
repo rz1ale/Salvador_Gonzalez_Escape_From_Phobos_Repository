@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "mode": "manual",
+  "manual_session": "new_on_open",
+  "entry": "policy/trajectory_handoff/entry.py",
+  "parameters": {
+    "task": "smoke",
+    "smoke_duration_s": 30.0,
+    "smoke_takeovers": 3
+  },
+  "model": "nominal_model.json",
+  "dependencies": [
+    "policy/trajectory_handoff/__init__.py",
+    "policy/trajectory_handoff/reference.py",
+    "policy/trajectory_handoff/check.py",
+    "policy/trajectory_handoff/core.py",
+    "policy/trajectory_handoff/online.py",
+    "policy/trajectory_handoff/guard.py",
+    "policy/trajectory_handoff/worker.py",
+    "policy/trajectory_handoff/settings.json",
+    "policy/trajectory_handoff/assets/manifest.json",
+    "policy/trajectory_handoff/assets/nominal_trajectory.npz",
+    "system_identification/__init__.py",
+    "system_identification/model.py",
+    "obstacle_characterization/__init__.py",
+    "obstacle_characterization/radar.py",
+    "obstacle_characterization/runtime.py",
+    "obstacle_characterization/collision.py",
+    "obstacle_characterization/settings.json"
+  ],
+  "output_root": "policy/trajectory_handoff/run_logs",
+  "schedule": {
+    "cases": [
+      {
+        "id": "HANDOFF_SMOKE",
+        "parameters": {}
+      }
+    ],
+    "repetitions_per_case": 1,
+    "repeat_set": {
+      "mode": "fixed",
+      "count": 1
+    },
+    "order": "listed"
+  },
+  "retry": {
+    "max_retries_per_trial": 0,
+    "retry_on": [
+      "startup_timeout",
+      "backend_disconnect",
+      "simulation_clock_stall"
+    ],
+    "on_exhausted": "pause"
+  },
+  "on_task_failure": "continue",
+  "limits": {
+    "startup_wall_s": 150,
+    "heartbeat_wall_s": 45,
+    "clock_stall_wall_s": 90,
+    "attempt_wall_s": 900.0,
+    "shutdown_wall_s": 30,
+    "task_sim_s": null
+  },
+  "logging": {
+    "state_period_s": 0.2
+  }
+}

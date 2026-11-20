@@ -1,0 +1,299 @@
+{
+  "schema_version": 4,
+  "objective": {
+    "mode": "score",
+    "score": {
+      "nominal_time_s": 120.0,
+      "nominal_fuel_kg": 75.0,
+      "damage_threshold_J": 209200.0
+    },
+    "quadratic": {
+      "Q_time": 1.0,
+      "Q_terminal_velocity": 0.0,
+      "velocity_scale_m_s": 5.0,
+      "R_fuel": 0.6,
+      "R_turn": 0.2,
+      "Q_position": 0.01,
+      "Q_velocity": 0.5,
+      "R_correction": 20.0,
+      "R_lateral": 0.1
+    }
+  },
+  "target": {
+    "mode": "fixed",
+    "observation_span_s": 1.0,
+    "max_estimated_speed_m_s": 50.0
+  },
+  "launch": {
+    "enabled": false,
+    "duration_s": 2.0,
+    "body_request_m_s2": [
+      0.0,
+      0.0,
+      0.5
+    ]
+  },
+  "planning": {
+    "horizon_s": 350.0,
+    "integration_step_s": 1.0,
+    "initial_time_guess_s": 170.0,
+    "burn_min_s": 2.0,
+    "burn_max_s": 70.0,
+    "burn_samples": 16,
+    "cone_half_angle_deg": 24.0,
+    "grid_refinement_levels": 3,
+    "arrival_radius_m": 46.0,
+    "require_feasible_plan": true,
+    "refit_after_alignment": true,
+    "require_feasible_post_align_refit": false
+  },
+  "attitude": {
+    "max_align_s": 38.0,
+    "max_request_rad_s2": 0.05,
+    "estimated_effective_ang_accel_rad_s2": 0.035,
+    "angle_tolerance_deg": 2.0,
+    "rate_tolerance_rad_s": 0.018,
+    "surface_deadband_rad": 0.012,
+    "stable_cycles": 3,
+    "economy": {
+      "enabled": true,
+      "request_candidates_rad_s2": [
+        0.0125,
+        0.02,
+        0.03,
+        0.04,
+        0.05
+      ],
+      "minimum_effective_accel_rad_s2": 0.005,
+      "turn_duration_margin": 1.15,
+      "score_reference_arrival_s": 230.0,
+      "time_cost_multiplier": 1.0,
+      "fuel_cost_multiplier": 1.0
+    },
+    "burn_hold": {
+      "enabled": true,
+      "activate_error_deg": 4.0,
+      "release_error_deg": 2.2,
+      "predicted_drift_s": 2.0,
+      "activate_rate_rad_s": 0.03,
+      "release_rate_rad_s": 0.018,
+      "max_request_rad_s2": 0.04,
+      "estimated_effective_accel_rad_s2": 0.06,
+      "min_off_s": 2.5,
+      "max_burst_s": 0.7,
+      "emergency_error_deg": 8.0,
+      "emergency_rate_rad_s": 0.075
+    },
+    "alignment_control": {
+      "braking_safety_factor": 0.55,
+      "minimum_braking_accel_rad_s2": 0.012,
+      "max_switch_accel_rad_s2": 0.05,
+      "quiet_surface_rad": 0.006,
+      "quiet_rate_rad_s": 0.011,
+      "minimum_reverse_dwell_s": 0.45,
+      "opposing_direction_cosine": -0.35
+    }
+  },
+  "burn": {
+    "request_x_m_s2": 0.5,
+    "online_stop": {
+      "enabled": true,
+      "check_period_s": 1.5,
+      "min_burn_elapsed_s": 8.0,
+      "future_burn_window_s": 18.0,
+      "candidate_samples": 19,
+      "arrival_radius_m": 38.0,
+      "integration_step_s": 0.75,
+      "score_tolerance_points": 0.3,
+      "confirmations_required": 2,
+      "max_extension_s": 10.0,
+      "enforce_max_burn_s": 70.0,
+      "log_checks": true,
+      "min_extension_predicted_s": 0.5,
+      "min_miss_improvement_m": 1.0,
+      "min_miss_improvement_m_per_kg": 3.0
+    },
+    "joint_optimizer": {
+      "enabled": false,
+      "check_period_s": 2.0,
+      "min_burn_elapsed_s": 10.0,
+      "future_burn_window_s": 18.0,
+      "burn_samples": 11,
+      "short_burn_sample_s": 0.7,
+      "lateral_request_magnitudes_m_s2": [
+        0.1,
+        0.2
+      ],
+      "lateral_pulse_durations_s": [
+        0.8,
+        1.6,
+        2.8
+      ],
+      "include_diagonals": true,
+      "max_candidates": 850,
+      "prediction_horizon_s": 330.0,
+      "integration_step_s": 1.25,
+      "capture_radius_m": 42.0,
+      "stop_score_tolerance_points": 0.28,
+      "stop_confirmations_required": 2,
+      "min_score_gain_for_lateral_points": 0.7,
+      "pulse_start_lead_s": 0.85,
+      "max_lateral_fuel_kg": 3.0,
+      "max_lateral_episodes_per_burn": 2,
+      "min_time_between_lateral_episodes_s": 5.0,
+      "unreachable_fuel_weight_m_per_kg": 0.3,
+      "log_forecasts": true,
+      "coast_radar_observation": true,
+      "coast_radar_log_period_s": 4.0
+    }
+  },
+  "control": {
+    "period_s": 0.1,
+    "radar_period_s": 0.4,
+    "event_period_s": 2.0
+  },
+  "avoidance": {
+    "enabled": true,
+    "radar_count": 200,
+    "lookahead_s": 8.0,
+    "max_radar_age_s": 2.0,
+    "clearance_padding_m": 10.0,
+    "max_lateral_request_m_s2": 0.15,
+    "min_closing_speed_m_s": 0.25,
+    "radar_age_uncertainty_m_s": 1.0,
+    "emergency_lateral_request_m_s2": 0.4,
+    "emergency_time_to_threat_s": 6.0,
+    "emergency_surface_range_m": 35.0
+  },
+  "feedback": {
+    "coast_trim_enabled": true,
+    "trim_period_s": 2.0,
+    "trim_deadband_m": 12.0,
+    "max_delivered_trim_m_s2": 0.025,
+    "max_request_trim_m_s2": 0.15,
+    "min_time_to_go_s": 10.0,
+    "max_time_to_go_s": 120.0,
+    "qr_feedback_enabled": true,
+    "qr_activation_range_m": 300.0
+  },
+  "safety": {
+    "mission_timeout_s": 390.0,
+    "arrival_observation_radius_m": 49.0,
+    "max_damage_J": 209200.0,
+    "radial_drop_abort_m": null
+  },
+  "coast": {
+    "mode": "ballistic",
+    "miss_monitor": {
+      "enabled": true,
+      "entry_grace_s": 1.0,
+      "check_period_s": 2.0,
+      "integration_step_s": 0.75,
+      "horizon_s": 390.0,
+      "capture_radius_m": 43.0,
+      "trigger_closest_m": 48.0,
+      "confirmations_required": 2,
+      "max_reinterceptions": 2,
+      "attempt_cooldown_s": 20.0
+    },
+    "direct_recovery": {
+      "enabled": true,
+      "allow_longitudinal": true,
+      "arrival_radius_m": 35.0,
+      "integration_step_s": 0.75,
+      "min_time_to_closest_s": 4.0,
+      "pulse_min_s": 0.3,
+      "pulse_max_s": 6.0,
+      "request_magnitudes_m_s2": [
+        0.08,
+        0.25,
+        0.5
+      ],
+      "proxy_max_m": 85.0,
+      "max_detailed_candidates": 16,
+      "max_fallback_turn_deg": 180.0,
+      "min_fallback_predicted_score": -1000.0,
+      "urgent_time_to_closest_s": 25.0,
+      "urgent_arrival_radius_m": 47.0,
+      "proxy_violation_cost_kg_per_m": 0.25
+    }
+  },
+  "startup": {
+    "mode": "no_orient",
+    "body_direction_B": [
+      0,
+      0,
+      1
+    ],
+    "body_candidates_B": [
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.25,
+        0.0,
+        0.9682458366
+      ],
+      [
+        0.5,
+        0.0,
+        0.8660254038
+      ],
+      [
+        0.75,
+        0.0,
+        0.6614378278
+      ]
+    ],
+    "search_body_candidates": false,
+    "partial_fraction": 0.5,
+    "combined_turn_fraction": 1.0,
+    "turn_translation_fraction": 0.7,
+    "auto_modes": [
+      "no_orient",
+      "partial_turn",
+      "full_turn",
+      "rotate_and_thrust"
+    ],
+    "auto_partial_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "candidate_burn_min_s": 5.0,
+    "candidate_burn_max_s": 110.0,
+    "candidate_burn_samples": 22,
+    "capture_radius_m": 42.0,
+    "predict_step_s": 1.25,
+    "predict_horizon_s": 340.0,
+    "turn_duration_margin": 1.2,
+    "fallback_burn_s": 75.75,
+    "required_prediction_feasible": true,
+    "online_burn": {
+      "enabled": true,
+      "check_period_s": 2.0,
+      "min_elapsed_s": 12.0,
+      "future_window_s": 25.0,
+      "candidate_samples": 17,
+      "stop_confirmations": 2,
+      "score_tolerance_points": 0.25,
+      "max_extension_s": 12.0,
+      "max_total_burn_s": 120.0
+    },
+    "no_orient_body_selection": "fixed",
+    "cone_offsets_deg": [
+      -6.0,
+      -3.0,
+      0.0,
+      3.0,
+      6.0
+    ]
+  }
+}

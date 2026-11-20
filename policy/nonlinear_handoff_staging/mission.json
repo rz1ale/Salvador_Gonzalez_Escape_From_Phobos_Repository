@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "initial_state_latent": [
+    -650.890463317571,
+    95.29300481707836,
+    -8241.174096456481,
+    0.0,
+    -0.0,
+    0.0,
+    0.9848614817870476,
+    0.16855626602590104,
+    -0.03977804037301114,
+    0.007372542282663705,
+    -0.0,
+    0.0,
+    -0.0
+  ],
+  "target_center_P_m": [
+    -850.0,
+    120.0,
+    -9530.0
+  ],
+  "source": "Previously supplied own initial state and public target; no debris or private scene data."
+}

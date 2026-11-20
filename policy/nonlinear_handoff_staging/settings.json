@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "design": {
+    "distance_m": 6.0,
+    "duration_s": 12.0,
+    "steps": 30,
+    "forward_velocity_m_s": null,
+    "Q": {"position": [1,1,1], "velocity": [0,0,0], "attitude": [0,50,50], "rate": [1,1,1]},
+    "Q_final": {"position": [5,5,5], "velocity": [0,0,0], "attitude": [0,500,500], "rate": [10,10,10]},
+    "R": [0.002,0.002,0.002,0.02,0.02,0.02],
+    "terminal_pointing_deg": null,
+    "terminal_pointing_fraction": 0.02,
+    "terminal_rate_rad_s": 0.005,
+    "terminal_position_tolerance_m": null
+  },
+  "feedback": {
+    "position_weight_multiplier": 0.01,
+    "rate_weight_multiplier": 200.0,
+    "period_s": 0.05,
+    "maximum_normalized_correction": 0.5,
+    "continuation_angle_weight": 0.8,
+    "continuation_rate_weight": 6,
+    "continuation_effort_weight": 1.0,
+    "continuation_alpha_limit_rad_s2": 0.12,
+    "continuation_pointing_deadband_deg": 0.1,
+    "continuation_rate_deadband_rad_s": 0.0005
+  },
+  "solver": {
+    "integration_step_s": 0.02,
+    "max_iterations": 1000,
+    "max_wall_s": 300,
+    "accept_verified_candidate": true,
+    "optimality_tolerance": 0.0001,
+    "constraint_tolerance": 0.000001,
+    "allocation_derivative_step": 0.0002
+  },
+  "execution": {"label": "d5_T14_pointing", "test_duration_s": null, "status_period_s": 2.0}
+}

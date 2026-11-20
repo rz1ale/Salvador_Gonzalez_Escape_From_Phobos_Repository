@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "export_verified": true,
+  "design_signature": "9e53b258230dfb28b8af36ea79089e0824110ca4ac50fc7288945c55bd376437",
+  "trajectory_signature": "b21d5c171fce8364d666cbceee30dc0df052466beaf80948fee4be6b64ec9ecd",
+  "model_sha256": "e278d6f37c82e5e7c32550bd8c4945a65f790f4c552e6a59c8a52f594a014258",
+  "mission_sha256": "9f6d743a3fa2acce421aa847993f1ba30b2fcdce8b0587275126288de40d9ee3",
+  "reference_sha256": "4b30b851f73c53741431dee7d95326d42aa32762f6cd8b247a809fdb4155407f",
+  "runtime_sources_sha256": {
+    "math_core.py": "3d1501159f3e94f0f96451df923bbc77da2cb4f3055d675fe7d5717838967c2a",
+    "flight.py": "0f91760de1018523a0433afd02adb796c81acde4554007e65dffa9fb6ade4ff8",
+    "entry.py": "a05df9d6f46a77ec88731e4403c3c897bd1ad950cc364111b5ebafd58e1c82df",
+    "accounting.py": "b30b6e3479e0428c522d7922dd8b43fd6bdc5d1e2bf46a19da0412d6a1db0a9b"
+  },
+  "reference": {
+    "p0": [
+      -651.0228484243066,
+      95.19902620579852,
+      -8239.668001620705
+    ],
+    "pd": [
+      -651.4799802202424,
+      95.25600417337782,
+      -8242.632421299555
+    ],
+    "xf": [
+      -842.3811367344032,
+      119.05036720701176,
+      -9480.593005352495
+    ],
+    "n": [
+      -0.15237726531193618,
+      0.018992655859764878,
+      -0.9881398929501067
+    ],
+    "qd": [
+      0.6405015280522552,
+      0.15014936688532377,
+      -0.7440724428978033,
+      -0.11648673704228377
+    ],
+    "vd": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "axis": [
+      0.0,
+      -0.9991636160342975,
+      -0.04089093289797792
+    ],
+    "angle": 1.6327891993895256
+  },
+  "terminal_public_request": [
+    0.003665812994499609,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "input_scales": [
+    0.002027750879867821,
+    0.0020253388991192302,
+    0.0020120813354860506,
+    0.0026061940995639817,
+    0.001605294849439826,
+    0.001690604223087882
+  ],
+  "solver": {
+    "method": "direct multiple shooting / IPOPT with exact smooth-region Lagrangian curvature",
+    "success": false,
+    "status": "Maximum_WallTime_Exceeded",
+    "objective": 479.3163019000453,
+    "selected_iterate": "initial_feasible_seed",
+    "iterations": 264,
+    "constraint_violation": 5.773159728050814e-15,
+    "dual_infeasibility": null,
+    "wall_s": 300.5789999999997,
+    "canonical_symbolic_error": 2.710505431213761e-20,
+    "globally_optimal": false,
+    "all_six_channels_free": true,
+    "programmed_maneuver_segments": false,
+    "reused_reference": true
+  },
+  "validation": {
+    "endpoint": {
+      "pointing_deg": 0.24964455037893535,
+      "rate_rad_s": 0.002367361617403387,
+      "position_error_m": 1.864013356227036,
+      "position_P_m": [
+        -652.0091158690283,
+        95.06514093010455,
+        -8244.409534824275
+      ],
+      "velocity_P_m_s": [
+        -0.22504291011014416,
+        -0.050743026447640664,
+        -0.34272850190325976
+      ],
+      "forward_velocity_m_s": 0.37199138356345823
+    },
+    "limits": {
+      "pointing_deg": 1.8710385991912895,
+      "rate_rad_s": 0.005,
+      "position_m": null
+    },
+    "checks": {
+      "pointing": true,
+      "rate": true,
+      "position": true,
+      "trajectory_defects": true,
+      "input_norms": true
+    },
+    "passed": true,
+    "max_nlp_replay_error": 0.0,
+    "max_refinement_error": 1.6695013300704886e-06,
+    "canonical_step_s": 0.01,
+    "refined_step_s": 0.005,
+    "native_qualified": false
+  },
+  "model_fuel_kg": 5.086208558308762,
+  "candidate_status": "replay_verified_nonstationary_candidate",
+  "feedback": "time-varying LQR about nonlinear trajectory; 12 physical errors + six previous-request deviations",
+  "feedback_weight_multipliers": {
+    "position_weight_multiplier": 0.01,
+    "rate_weight_multiplier": 200.0
+  },
+  "feedback_input_derivative": "central differences of original saturated allocator",
+  "design_used": {
+    "distance_m": 3.0,
+    "duration_s": 14.0,
+    "steps": 28,
+    "forward_velocity_m_s": null,
+    "Q": {
+      "position": [
+        1,
+        1,
+        1
+      ],
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "attitude": [
+        0,
+        50,
+        50
+      ],
+      "rate": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Q_final": {
+      "position": [
+        5,
+        5,
+        5
+      ],
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "attitude": [
+        0,
+        500,
+        500
+      ],
+      "rate": [
+        10,
+        10,
+        10
+      ]
+    },
+    "R": [
+      0.002,
+      0.002,
+      0.002,
+      0.02,
+      0.02,
+      0.02
+    ],
+    "terminal_pointing_deg": null,
+    "terminal_pointing_fraction": 0.02,
+    "terminal_rate_rad_s": 0.005,
+    "terminal_position_tolerance_m": null
+  },
+  "native_backend_sha256": "4fe58d5ccae125f94cfd37f5bdbd779d1ff16bfad95ab2044371023488954400",
+  "native_qualified": false,
+  "obstacle_avoidance": false,
+  "official_score_captured": false
+}

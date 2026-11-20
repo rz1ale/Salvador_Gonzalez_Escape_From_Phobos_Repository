@@ -1,0 +1,135 @@
+OFFLINE VALIDATION | naive_handoff v1.0.0 | 2026-11-17
+
+Environment: Python 3, NumPy 2.3.5, SciPy 1.17.0. No native simulator run.
+Selected model SHA256:
+e278d6f37c82e5e7c32550bd8c4945a65f790f4c552e6a59c8a52f594a014258
+Latest supplied nominal_model.json matched the installed model used to build.
+
+14 policy checks passed:
+- physical/passive quaternion signs, q/-q, and body/world angular-rate conversion
+- minimum rotation actually aligns physical body +X with the requested direction
+- nearest-point sphere geometry
+- exact official pulse fuel formula at short/equal/long allocation intervals
+- pure-axis model saturation knees match high-command delivered thrust/fuel
+- nominal score and unclamped score behavior
+- full-thrust common scaling preserves translation/rotation ratios and saturated delivery
+- scheduled phase boundaries and body angular feedback
+- stale settings reject cached reference
+- bounded attitude setup projected stationarity; 5 s duration is not auto-extended
+- actual sim_core.runtime.execute_entry loader, three stages, final zero, no stop
+- synthetic disconnect produces partial accounting without an arrival score
+- entry import needs neither SciPy nor spaceteams
+- run_plan.json validates against the installed shared runner
+
+Additional integration checks passed:
+- actual runner CLI select/check in an isolated source fixture; no GUI launch
+- analyze.py --all produced comparison.txt/JSON/PNG and per-attempt plots
+- analyze.py --session --model-fuel produced optional actual-send-history estimate
+  (synthetic SDK records only; synthetic scores are not mission performance)
+- official supplied Scoring.py and JetSelectionActuator.py source hashes unchanged
+- artifact contains no Controller.py, OriginalController.py, simulation config,
+  native source, old-policy dependency, recordings, or alternate model/backend
+
+DEFAULT MODEL REPLAY (2 s boost, 9 s slew; 30 s total; no obstacles/contacts):
+{
+  "solver": {
+    "method": "bounded fixed-axis quadratic setup plus exact reduced fuel",
+    "success": true,
+    "message": "The first-order optimality measure is less than `tol`.",
+    "iterations": 89,
+    "projected_gradient_inf": 5.581515284680538e-12,
+    "selected_duration_s": 9.0,
+    "steps": 90,
+    "angle_rad": 1.6327891993895256,
+    "axis_B": [
+      0.0,
+      -0.9991636160342975,
+      -0.040890932897977926
+    ],
+    "achievable_alpha_positive_rad_s2": 0.09576621675314823,
+    "achievable_alpha_negative_rad_s2": 0.07951646576560399,
+    "minimum_rest_to_rest_time_s": 8.669915463494553,
+    "ideal_terminal_pointing_error_deg": -5.549802739771159e-05,
+    "ideal_terminal_rate_rad_s": 3.99272021793691e-06,
+    "reduced_slew_fuel_kg": 3.726365960864894,
+    "scope": "Fixed-axis zero initial rate, no angular bias/delay; full model replay follows"
+  },
+  "model_handoff": {
+    "elapsed_s": 11.0,
+    "pointing_error_deg": 0.623212685583891,
+    "angular_rate_rad_s": 0.007297409894093799,
+    "fuel_kg": 4.657215693368285,
+    "position_P_m": [
+      -649.4561686897124,
+      95.77573111256022,
+      -8242.331288155223
+    ],
+    "velocity_P_m_s": [
+      0.017296781718960236,
+      -0.012368272878033715,
+      -0.062208504448199094
+    ]
+  },
+  "integration_refinement": {
+    "max_position_difference_m": 5.6942475707982553e-08,
+    "max_rate_difference_rad_s": 1.8079913706340223e-14
+  }
+}
+
+The scalar setup solution satisfies the reduced convex problem's optimality
+check. No full nonlinear mission optimum or native flight result is established.
+The nonlinear replay uses 0.01 s propagation; 0.005 s replay of the SAME command
+history agrees to the reported refinement errors. Both replays share the nominal
+model, so this is an integration check, not independent physical validation.
+
+Next native check: use the manual procedure in README.txt, inspect real stage
+transitions and public fuel statistics, then compare repeated runs locally.
+The baseline has no obstacle avoidance. The default continues full +X until
+observed arrival/operator stop; set test_duration_s explicitly for a short test.
+
+SHORT VARIANT CHECK (1 s boost / 5 s slew / changed hold effort weight):
+{
+  "solver": {
+    "method": "bounded fixed-axis quadratic setup plus exact reduced fuel",
+    "success": true,
+    "message": "The first-order optimality measure is less than `tol`.",
+    "iterations": 47,
+    "projected_gradient_inf": 0.0,
+    "selected_duration_s": 5.0,
+    "steps": 50,
+    "angle_rad": 1.6327891993895256,
+    "axis_B": [
+      0.0,
+      -0.9991636160342975,
+      -0.040890932897977926
+    ],
+    "achievable_alpha_positive_rad_s2": 0.09576621675314823,
+    "achievable_alpha_negative_rad_s2": 0.07951646576560399,
+    "minimum_rest_to_rest_time_s": 8.669915463494553,
+    "ideal_terminal_pointing_error_deg": 27.424954153797803,
+    "ideal_terminal_rate_rad_s": 0.3561332060026145,
+    "reduced_slew_fuel_kg": 2.406428896787479,
+    "scope": "Fixed-axis zero initial rate, no angular bias/delay; full model replay follows"
+  },
+  "model_handoff": {
+    "elapsed_s": 6.0,
+    "pointing_error_deg": 27.708118761457552,
+    "angular_rate_rad_s": 0.36355054212644566,
+    "fuel_kg": 2.7859629090955664,
+    "position_P_m": [
+      -649.6436821411193,
+      95.70974637891504,
+      -8240.729126437182
+    ],
+    "velocity_P_m_s": [
+      0.010164147626088726,
+      -0.006761240104070183,
+      -0.025164944417302965
+    ]
+  },
+  "integration_refinement": {
+    "max_position_difference_m": 8.845712068721271e-07,
+    "max_rate_difference_rad_s": 4.19205960746619e-14
+  }
+}
+The requested 5 s slew was executed without extension; residuals are reported.

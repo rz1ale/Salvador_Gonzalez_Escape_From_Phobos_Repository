@@ -1,0 +1,72 @@
+VALIDATION | NONLINEAR HANDOFF STAGING | 2026-11-17
+
+SCOPE / STATUS
+16 offline tests passed. Existing runner prepare/select/check and analyzer CLI
+passed in an isolated fixture. No native simulator was launched. No native
+mission score, collision avoidance, or real-time qualification is established.
+Current reference: replay_verified_nonstationary_candidate.
+The final local solve exceeded its 90 s wall budget without a verified improvement;
+it retained an earlier coupled nonlinear solver candidate as its feasible warm
+start. It did NOT establish stationarity or an optimum. This reference is not a
+programmed boost/slew sequence. All six inputs were trajectory decision variables.
+
+DEFAULT DESIGN
+T=14 s; 28 intervals; d=5 m SOFT positional reference.
+Pointing bound=1.871038599 deg (2% of the requested 93.551929960 deg turn).
+Body rate norm bound=.005 rad/s. No hard positional bound; velocity free.
+Roll weight zero; body +X pointing dominates. Last reference input=max pure +X.
+These settings are explicit and adjustable; preparation never extends time.
+Quadratic R is normalized command effort, not exact fuel. Official accounting
+constants are fixed separately. This solves the staging objective, not the full
+competition-score optimum.
+
+ORIGINAL BACKEND OPEN-LOOP REPLAY
+Refined .005 s propagation versus .01 s canonical backend integration:
+  Endpoint pointing error: .249644550 deg
+  Endpoint body rate norm: .002367362 rad/s
+  Distance from soft pd: .377340359 m
+  Velocity component toward xf: .371991384 m/s
+  Model staging fuel: 5.086208558 kg
+  Maximum state integration refinement difference: 1.66951e-6
+The JSON and the original clipping/LP/shared-normalization backend were used.
+This verifies implementation consistency, not independent physical accuracy.
+
+ACTUAL SHARED ENTRY / NONLINEAR MODEL CLOSED LOOP
+Uses real sim_core.runtime.execute_entry, public-packet emulation, original
+model allocation and report/input delays, .4 s initial coast, and fixed .05 s
+control sampling. Public SDK/network/native timing is not emulated.
+The tracker uses explicit position-Q multiplier .01 and rate-Q multiplier 100.
+
+NOMINAL
+  Pointing: 0.250780722 deg; rate: 0.002337631 rad/s
+  Soft pd error: 0.359122287 m; forward speed: 0.460969956 m/s
+  Model staging fuel: 5.424205766 kg; requested bounds passed: True
+
+PERTURBED
+  Pointing: 0.314994069 deg; rate: 0.002366546 rad/s
+  Soft pd error: 0.702500087 m; forward speed: 0.402110642 m/s
+  Model staging fuel: 5.108221885 kg; requested bounds passed: True
+
+Perturbation: initial position [.1,-.1,.1] m; physical attitude [0,.025,.01] rad;
+body rate [0,.002,0] rad/s. It is one modest disturbance test, not a robustness
+certificate. Both fixtures recorded the scheduled transition to continuation,
+then an intentional fixture exception; final command was zero, native stop false.
+This is why model fuel differs from the open-loop reference replay.
+
+OTHER CHECKS
+Quaternion sign/retraction and tangent maps; reference geometry; soft distance;
+explicit 2% scale/absolute zero-rate tolerance; no implicit zero-velocity target;
+fixed official impulse fuel law and nominal score; last canonical +X equivalence;
+settings/source/cache validation; symbolic/canonical dynamics and LP derivatives;
+world/body angular reporting; flight imports with no SciPy/CasADi/SDK side effects.
+CLI --select reused the cache, validated the installed dispatcher, and changed
+only the fixture selection. Controller.py and OriginalController.py were unchanged.
+CLI analyzer --all/--session generated two metric reports, two plots, and a
+single tab-delimited comparison. Partial runs received no winning score.
+
+REPRODUCE
+  & $py .\policy\nonlinear_handoff_staging\precompute.py --check
+  & $py -m unittest discover -s policy/nonlinear_handoff_staging/tests -v
+Native next step: prepare/select, then manually open unchanged official sim and
+select spectator. Inspect measured handoff and fuel with analyze.py after each
+run. The policy has no obstacle avoidance; continuing full mission can collide.

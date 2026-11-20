@@ -1,0 +1,651 @@
+{
+  "schema_version": 1,
+  "model_type": "public_request_mean_allocation_6dof_v1",
+  "state_dimension": 13,
+  "input_dimension": 6,
+  "state_order": [
+    "p_C_P[3]",
+    "v_C_P[3]",
+    "passive_q_PB_xyzw[4]",
+    "omega_relP_B[3]"
+  ],
+  "input_kind": "public_body_acceleration_requests",
+  "input_units": [
+    "m/s^2",
+    "m/s^2",
+    "m/s^2",
+    "rad/s^2",
+    "rad/s^2",
+    "rad/s^2"
+  ],
+  "mass_kg": 3388.7,
+  "inertia_B_kg_m2": [
+    [
+      3025.8,
+      -171.7,
+      461.7
+    ],
+    [
+      -171.7,
+      5927.5,
+      313.6
+    ],
+    [
+      461.7,
+      313.6,
+      6756.0
+    ]
+  ],
+  "parameters": {
+    "reporting_offset_B_m": [
+      -0.2699625070376559,
+      0.0026853326160187173,
+      -1.490567839448853
+    ],
+    "velocity_report_delay_s": 0.04350706408146057,
+    "velocity_report_bias_P_m_s": [
+      -6.935590371485653e-06,
+      3.6507150907895414e-06,
+      -1.0986237286523378e-05
+    ],
+    "rate_report_delay_s": 0.04244294183217468,
+    "rate_report_bias_B_rad_s": [
+      2.427035113928064e-08,
+      -1.1119659012348301e-06,
+      5.918908545795684e-07
+    ],
+    "mean_native_period_s": 0.021,
+    "linear_effect_delay_s": 0.025,
+    "angular_effect_delay_s": 0.02,
+    "linear_gain": [
+      [
+        0.9809008558628808,
+        0.0008653379393314951,
+        -0.001806521884664621
+      ],
+      [
+        0.000753241516069458,
+        0.9931402997323707,
+        -0.0012109212013780323
+      ],
+      [
+        2.245868639419363e-05,
+        2.5121021063061057e-05,
+        1.0091822655839406
+      ]
+    ],
+    "uniform_external_acceleration_P_m_s2": [
+      0.0022153800776861477,
+      -0.0010341517732806037,
+      0.0015479549857940595
+    ],
+    "angular_gain": [
+      [
+        1.004032653666166,
+        0.0016829936963485609,
+        -0.006437772749061811
+      ],
+      [
+        -0.002199185912885364,
+        1.0342227818620726,
+        0.0012314611150886356
+      ],
+      [
+        -0.0003493821725693634,
+        0.004949967385867006,
+        1.0037157812499853
+      ]
+    ],
+    "angular_bias_B_rad_s2": [
+      2.6573735470836526e-06,
+      2.455425906877098e-06,
+      -7.046864996676983e-06
+    ],
+    "gyro_coefficient": 0.0,
+    "phobos_mu_prior_m3_s2": 707500.0
+  },
+  "integration_max_step_s": 0.01,
+  "actuator": {
+    "jet_matrix": [
+      [
+        2.411229422019756e-07,
+        1.4467376532118532e-07,
+        0.048224588440395115,
+        0.03960883052514005,
+        -0.025609294099480675,
+        -0.001518126542156086
+      ],
+      [
+        -4.822409460081851e-08,
+        -0.0482240946008185,
+        4.3401685140736655e-07,
+        -0.035908651989206446,
+        7.567710929480182e-05,
+        -0.021095041031325562
+      ],
+      [
+        -9.644522615559405e-08,
+        -0.04822261307779702,
+        -9.644522615559405e-07,
+        -0.004585810189017748,
+        -0.001689835922015022,
+        0.029417082058832287
+      ],
+      [
+        -9.644492555829545e-08,
+        -0.04822246277914772,
+        -9.644492555829544e-07,
+        -0.005349886049741822,
+        -0.001971461948687637,
+        0.03431980149187031
+      ],
+      [
+        9.644552677141018e-08,
+        1.9289105354282036e-07,
+        -0.04822276338570509,
+        -0.06185414240641896,
+        -0.03518392803180919,
+        0.0058600645615736625
+      ],
+      [
+        9.644587031118009e-08,
+        1.9289174062236017e-07,
+        -0.04822293515559004,
+        -0.06221162728247384,
+        -0.0407230215468812,
+        0.006141589096666598
+      ],
+      [
+        -9.644733035476815e-08,
+        0.04822366517738407,
+        -2.411183258869204e-07,
+        0.00458483761059061,
+        0.0016890086483060055,
+        -0.02941761045324344
+      ],
+      [
+        -9.644217725821968e-08,
+        0.048221088629109836,
+        -2.411054431455492e-07,
+        0.005348652095446423,
+        0.001970403205236039,
+        -0.034318703066665575
+      ],
+      [
+        -9.644518323164029e-08,
+        -1.9289036646328057e-07,
+        -0.04822259161582015,
+        0.057566761591131665,
+        -0.031283294030937055,
+        -0.002481898351597051
+      ],
+      [
+        -9.644518323164029e-08,
+        -1.9289036646328057e-07,
+        -0.04822259161582015,
+        0.05720949347251653,
+        -0.03682222501317329,
+        -0.00220035747298384
+      ],
+      [
+        0.04822286000556615,
+        3.37560020038963e-07,
+        -0.0,
+        0.00446315753968653,
+        0.01184866105794715,
+        -0.024844355009542476
+      ],
+      [
+        0.048222645293209965,
+        3.3755851705246975e-07,
+        -0.0,
+        -0.0031149440376814995,
+        0.009056522307786932,
+        0.023781180037717533
+      ],
+      [
+        -9.644660032701854e-08,
+        -0.04822330016350927,
+        5.786796019621112e-07,
+        0.043346998170576155,
+        0.002664197521617339,
+        -0.026631048733939195
+      ],
+      [
+        -0.04822353634524445,
+        -7.233530451786668e-07,
+        -0.0,
+        -0.00518498536285484,
+        -0.023067620384838252,
+        0.0254059701690133
+      ],
+      [
+        9.644625677466245e-07,
+        1.4466938516199363e-07,
+        -0.04822312838733121,
+        -0.05054576420291876,
+        0.025251624446638084,
+        0.00228173810743647
+      ],
+      [
+        -9.644711563971144e-08,
+        0.04822355781985572,
+        -4.340120203787015e-07,
+        -0.04334602845863479,
+        -0.002664333324210553,
+        0.026631114569233845
+      ],
+      [
+        -0.04822314986300336,
+        -7.233472479450503e-07,
+        -0.0,
+        0.002390642192390624,
+        -0.020276269041063305,
+        -0.023203643966373883
+      ],
+      [
+        3.375617484719113e-07,
+        -1.4466932077367627e-07,
+        -0.04822310692455876,
+        0.054023563783747515,
+        0.02866677353239747,
+        -0.005022493077000092
+      ],
+      [
+        -0.04822302103983329,
+        -3.37561147278833e-07,
+        -0.0,
+        0.0010188281807355065,
+        0.02158179522105949,
+        0.0013470364198905137
+      ],
+      [
+        -0.04822336457960318,
+        -3.3756355205722224e-07,
+        -0.0,
+        0.001782932736181884,
+        0.021863474749172586,
+        -0.003555851159239596
+      ],
+      [
+        -1.9289405951609636e-07,
+        4.822351487902409e-08,
+        0.04822351487902409,
+        0.0050318258776774994,
+        -0.04890809188376785,
+        0.0019264019861659324
+      ],
+      [
+        -1.9289358714891275e-07,
+        4.822339678722819e-08,
+        0.04822339678722819,
+        -0.011375604193714198,
+        -0.04944387696767597,
+        0.003072514562805191
+      ],
+      [
+        9.644556969338676e-08,
+        -0.04822278484669338,
+        -1.012678481780561e-06,
+        0.036441396044669845,
+        0.00012058394960280582,
+        0.017664549884399333
+      ],
+      [
+        -3.3756234966650864e-07,
+        1.446695784285037e-07,
+        -0.048223192809501235,
+        -0.053773746455163925,
+        -0.024791779854217447,
+        0.0048257439085813226
+      ],
+      [
+        9.644574148434506e-08,
+        0.048222870742172526,
+        -9.644574148434506e-08,
+        -0.03644258631454507,
+        -0.00012107063046213717,
+        -0.0176644818618605
+      ],
+      [
+        -9.64464714870186e-07,
+        -1.4466970723052786e-07,
+        -0.04822323574350929,
+        0.05079594630440102,
+        -0.021376575073039195,
+        -0.0024795012312189037
+      ],
+      [
+        -0.048223364574756726,
+        -7.23350468621351e-07,
+        -2.4111682287378367e-07,
+        -0.005125272208562604,
+        -0.0018881148314890646,
+        0.03288447752868783
+      ],
+      [
+        -0.048223364568511805,
+        -1.0609140205072598e-06,
+        -2.4111682284255907e-07,
+        0.005125452620569357,
+        0.0018884396449108509,
+        -0.03288553907111651
+      ],
+      [
+        2.411175207159464e-07,
+        -4.822350414318926e-08,
+        0.048223504143189266,
+        0.011375619495060395,
+        0.04944395892752746,
+        -0.0030724661692592015
+      ],
+      [
+        2.411177891063916e-07,
+        -4.822355782127831e-08,
+        0.04822355782127831,
+        -0.005031850697070502,
+        0.04890810352181342,
+        -0.0019262822785130645
+      ],
+      [
+        -4.822293515595172e-08,
+        0.04822293515595172,
+        9.644587031190344e-08,
+        0.03590809943383506,
+        -7.592101117014582e-05,
+        0.02109452401299533
+      ],
+      [
+        9.644625677466245e-07,
+        -1.4466938516199363e-07,
+        0.04822312838733121,
+        -0.043085447776020934,
+        -0.02830984369366739,
+        0.004258808735619212
+      ],
+      [
+        9.644574148434506e-08,
+        -0.048222870742172526,
+        9.644574148434506e-08,
+        -0.04281127808963009,
+        -0.0024675544132435477,
+        0.023200790625790897
+      ],
+      [
+        -9.64464714870186e-07,
+        1.4466970723052786e-07,
+        0.04822323574350929,
+        0.05377373442895183,
+        0.024792076593295725,
+        -0.004825253486267992
+      ],
+      [
+        9.644556969338676e-08,
+        0.04822278484669338,
+        1.012678481780561e-06,
+        0.0428101346112298,
+        0.0024679648681765207,
+        -0.023200695623458608
+      ],
+      [
+        -3.3756234966650864e-07,
+        -1.446695784285037e-07,
+        0.048223192809501235,
+        -0.050795841177934536,
+        0.021376281374842925,
+        0.002479004305351984
+      ],
+      [
+        0.04822356854688974,
+        1.0126949394846846e-06,
+        -0.0,
+        0.0031154699230576924,
+        -0.009056593913145488,
+        -0.023782782907864855
+      ],
+      [
+        0.04822342898385825,
+        -1.0126920086610231e-06,
+        -0.0,
+        -0.004463874118971902,
+        -0.01184882436882374,
+        0.02484525009593398
+      ]
+    ],
+    "jet_force_N": [
+      163.41866285074502,
+      163.41698938049376,
+      163.41196896973997,
+      163.41145965270698,
+      163.41247828677297,
+      163.4130603633821,
+      163.41553418897092,
+      163.4068030398339,
+      163.41189621016383,
+      163.41189621016383,
+      163.4128057048656,
+      163.4120781091042,
+      163.4142972761765,
+      163.41509763151407,
+      163.41371519956738,
+      163.41517039109021,
+      163.41378795914352,
+      163.41364243999124,
+      163.41335140168667,
+      163.41451555490494,
+      163.41502487193793,
+      163.41462469426915,
+      163.4125510463491,
+      163.4139334782958,
+      163.41284208465368,
+      163.4140789974481,
+      163.41451555490494,
+      163.41451555490494,
+      163.41498849214986,
+      163.41517039109021,
+      163.4130603633821,
+      163.41371519956738,
+      163.41284208465368,
+      163.4140789974481,
+      163.4125510463491,
+      163.4139334782958,
+      163.41520677087829,
+      163.41473383363336
+    ],
+    "lp_solver": "revised simplex",
+    "request_norm_caps": [
+      0.5,
+      0.05
+    ],
+    "law": "clip request norms; minimum-sum nonnegative LP; mean response b/max(fitted_mean_period,max(allocation))"
+  },
+  "assumptions": [
+    "Continuous mean approximation to unknown native impulse timing; effective period is fitted, not read.",
+    "Phobos monopole prior plus fitted uniform external acceleration; no private ephemeris or actuator telemetry.",
+    "Frame angular transport neglected; local-domain candidate, not equivalent to a full dual-ephemeris model.",
+    "Effective reporting point is not independently established physical COM.",
+    "Nonzero command delays require timestamped history; step() assumes a previously held constant input."
+  ],
+  "provenance": {
+    "session": "C:\\Users\\Owner\\AppData\\Local\\SimDynamX\\STPro\\Assets\\Repos\\STU4-Solution\\system_identification\\data_sets\\20261106_054253_3143e1a4",
+    "acquisition_signature": "3d88733071a2429a7f3c22ba938b10fad963e1415fa3026331be6486965f9a52",
+    "selection": {
+      "training": [
+        "p0001_SAT_TX_P_A01_r0001__attempt_001_ca80c077",
+        "p0001_SAT_TX_P_A04_r0001__attempt_001_e9920076",
+        "p0001_SAT_TX_P_A04_r0001__attempt_002_f57eb486",
+        "p0001_SAT_TX_N_A01_r0001__attempt_001_85dd57d2",
+        "p0001_SAT_TX_N_A04_r0001__attempt_001_1177365c",
+        "p0001_SAT_TY_P_A01_r0001__attempt_001_f6239c25",
+        "p0001_SAT_TY_P_A04_r0001__attempt_001_6220a80b",
+        "p0001_SAT_TY_N_A01_r0001__attempt_001_efe33fb4",
+        "p0001_SAT_TY_N_A04_r0001__attempt_001_29dc559b",
+        "p0001_SAT_TZ_P_A01_r0001__attempt_001_d9bb1c3c",
+        "p0001_SAT_TZ_P_A04_r0001__attempt_001_13590880",
+        "p0001_SAT_TZ_N_A01_r0001__attempt_001_af94250e",
+        "p0001_SAT_TZ_N_A04_r0001__attempt_001_5200e4cb",
+        "p0001_SAT_RX_P_A01_r0001__attempt_001_6fc4c5b4",
+        "p0001_SAT_RX_P_A04_r0001__attempt_001_9a43d7a0",
+        "p0001_SAT_RX_N_A01_r0001__attempt_001_37245789",
+        "p0001_SAT_RX_N_A04_r0001__attempt_001_3fc9f106",
+        "p0001_SAT_RY_P_A01_r0001__attempt_001_f6fe603d",
+        "p0001_SAT_RY_P_A04_r0001__attempt_001_9423ab22",
+        "p0001_SAT_RY_N_A01_r0001__attempt_001_33e3877b",
+        "p0001_SAT_RY_N_A04_r0001__attempt_001_12e6df67",
+        "p0001_SAT_RZ_P_A01_r0001__attempt_002_2a058195",
+        "p0001_SAT_RZ_P_A04_r0001__attempt_001_d5c12aef",
+        "p0001_SAT_RZ_N_A01_r0001__attempt_001_25195c46",
+        "p0001_SAT_RZ_N_A04_r0001__attempt_001_71806f48",
+        "p0001_COAST_H22_r0001__attempt_001_2a67e251",
+        "p0001_COAST_H28_r0001__attempt_001_d98b3868",
+        "p0001_COUPLED_01_r0001__attempt_001_e68e9f01",
+        "p0001_COUPLED_02_r0001__attempt_001_c289b78a"
+      ],
+      "validation": [],
+      "testing": [],
+      "excluded": [
+        {
+          "attempt": "attempt_001_27e8ab73",
+          "reason": "No completed clean interval: p0001_SAT_RZ_P_A01_r0001__attempt_001_27e8ab73"
+        }
+      ],
+      "testing_unsealed": false
+    },
+    "analysis_versions": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2"
+    },
+    "jet_table_sha256": "da8c76cd556e828d568eec83d39da40eab7b6b94307a9b524fc22d75046d6de3",
+    "fit_source_sha256": "3f3ec8f02cd4b7a0f9766ae97fa3431ea7ebd59b8354d2127d24fa59a89aedb8",
+    "backend_source_sha256": "4fe58d5ccae125f94cfd37f5bdbd779d1ff16bfad95ab2044371023488954400",
+    "inputs": {
+      "trials\\p0001_SAT_TX_P_A01_r0001\\attempt_001_ca80c077\\telemetry.txt": "5b02dafbfa440e5fd1e54a555c3e2fb0fbcf42fe4bb09b4a8d4d0a2d97db14ef",
+      "trials\\p0001_SAT_TX_P_A01_r0001\\attempt_001_ca80c077\\commands.txt": "39d60c8fec4672d6b30ef1b02f9285393a2e5e6a824a1b7a845ee9c721ceac85",
+      "trials\\p0001_SAT_TX_P_A01_r0001\\attempt_001_ca80c077\\quality.json": "8b94ae95e479a4192960f62c2b1ea159c522470d89f5a59a9e9a7873be785e41",
+      "trials\\p0001_SAT_TX_P_A01_r0001\\attempt_001_ca80c077\\metadata.json": "c0eca171a2beeb2dfa02fbcdfc4ae8cce1c50ce4d26cab20c827fac16cbd1987",
+      "trials\\p0001_SAT_TX_P_A04_r0001\\attempt_001_e9920076\\telemetry.txt": "f589dc91176d959e7bd90be483cc7cbdd9f912eb93ca0321f2c5a239eb497f45",
+      "trials\\p0001_SAT_TX_P_A04_r0001\\attempt_001_e9920076\\commands.txt": "64f96e8cd522f1583ff3590080bb9aad69d368c5d5141f39df77336fcabf9edd",
+      "trials\\p0001_SAT_TX_P_A04_r0001\\attempt_001_e9920076\\quality.json": "e06d0d1ab1ff0cfeed65133a8f822135fc1aac79b56a0bae46013e22868f9dd2",
+      "trials\\p0001_SAT_TX_P_A04_r0001\\attempt_001_e9920076\\metadata.json": "eb1a30c8f3cf7ef730e68c4294e0730f8d827bdc00c852fd6c785399f70ab682",
+      "trials\\p0001_SAT_TX_P_A04_r0001\\attempt_002_f57eb486\\telemetry.txt": "c842f7bc92676974659abe820a2e5ac4195a52d12bba8b23164b60436d9b6c37",
+      "trials\\p0001_SAT_TX_P_A04_r0001\\attempt_002_f57eb486\\commands.txt": "f3520ff174f573304c191fb8d8356730e26a6b14ebb25e1e77403b0c8224e01f",
+      "trials\\p0001_SAT_TX_P_A04_r0001\\attempt_002_f57eb486\\quality.json": "a048a0573ab7ff42fbff9ecfeb2df36c25c8eeb805f40cc2f72872a3cf64812a",
+      "trials\\p0001_SAT_TX_P_A04_r0001\\attempt_002_f57eb486\\metadata.json": "803cd3a844879a14893ad9f6e3cf82507d6844856bd9d3d964dbc7ccc5876f6b",
+      "trials\\p0001_SAT_TX_N_A01_r0001\\attempt_001_85dd57d2\\telemetry.txt": "e32f8d8c7f30e691c99b010e236802108d50f12a21fa6558fcf8eb2c73b50dc6",
+      "trials\\p0001_SAT_TX_N_A01_r0001\\attempt_001_85dd57d2\\commands.txt": "11015c5cf2185e167fb7079d7db24ec8bb6d960358b7fe2f71ef0b6b28f79f27",
+      "trials\\p0001_SAT_TX_N_A01_r0001\\attempt_001_85dd57d2\\quality.json": "51ee6c001098b42caa635ecd77fdb3ce76fc1f9a9e4130f4de147c9033fe3971",
+      "trials\\p0001_SAT_TX_N_A01_r0001\\attempt_001_85dd57d2\\metadata.json": "5166909dd9c7f3554e874897f58b0b3ecab342ca0461049a1a8416b39818e161",
+      "trials\\p0001_SAT_TX_N_A04_r0001\\attempt_001_1177365c\\telemetry.txt": "0f87153811bab49c2cf84b2c2365abad0a16e7f7251966a9221d90afbfbfd316",
+      "trials\\p0001_SAT_TX_N_A04_r0001\\attempt_001_1177365c\\commands.txt": "04026921862a2bea8a843254cf06b8309b548ad5447724f1e2fa89ee1cd03f07",
+      "trials\\p0001_SAT_TX_N_A04_r0001\\attempt_001_1177365c\\quality.json": "d156806029b64e2b3ab71d6553f63f60c16abe50c7286fab92ea887a9104efa1",
+      "trials\\p0001_SAT_TX_N_A04_r0001\\attempt_001_1177365c\\metadata.json": "d7b91edd7c2895cc18da7187b1283f149904149cae4aec58acf5bd5772fc09fc",
+      "trials\\p0001_SAT_TY_P_A01_r0001\\attempt_001_f6239c25\\telemetry.txt": "8f12b43d2b075799b548c90a41057076461112eb919bd5d5b8a9d3b669562ac2",
+      "trials\\p0001_SAT_TY_P_A01_r0001\\attempt_001_f6239c25\\commands.txt": "a159598cea00bb316920b4fc436ba0a46cb32b235d674abd6f8f0d4041218711",
+      "trials\\p0001_SAT_TY_P_A01_r0001\\attempt_001_f6239c25\\quality.json": "e089f5ad12de53a8547e04340ad53821ebd05ce7526a23c8c5b5d30a705657a3",
+      "trials\\p0001_SAT_TY_P_A01_r0001\\attempt_001_f6239c25\\metadata.json": "45957df579cfa861588957c905bdd469c5cb250bd4dbc6d4cc5a51d8f5d77003",
+      "trials\\p0001_SAT_TY_P_A04_r0001\\attempt_001_6220a80b\\telemetry.txt": "8e1ce370aa4a37fb7d26d4ceb712fcbab0a16dfbe4d71c83eddd454ea70da0e4",
+      "trials\\p0001_SAT_TY_P_A04_r0001\\attempt_001_6220a80b\\commands.txt": "ca4b703bce4caa2acbcd1cf92557742baa4a9504195657811362d7b6aa18a433",
+      "trials\\p0001_SAT_TY_P_A04_r0001\\attempt_001_6220a80b\\quality.json": "bbdb886c40833347961242ae4c968a788ce143942e336e1cc57163539e09d9ad",
+      "trials\\p0001_SAT_TY_P_A04_r0001\\attempt_001_6220a80b\\metadata.json": "a786165605c1140fb2c10b94e0663c3ac501bd44aae3fae023a7bf64f93ac043",
+      "trials\\p0001_SAT_TY_N_A01_r0001\\attempt_001_efe33fb4\\telemetry.txt": "ccc1fe9065977f0222c92881fc9566c2f836478121812811c2b504f2d20df7ce",
+      "trials\\p0001_SAT_TY_N_A01_r0001\\attempt_001_efe33fb4\\commands.txt": "b9a306db8696d7272743ec6cb8c233d9d520898043ad1b21686304c4508b98cc",
+      "trials\\p0001_SAT_TY_N_A01_r0001\\attempt_001_efe33fb4\\quality.json": "53b3b19034b3420526187a82330539b3f69a82fc3926ee662e303ace1b0a3f63",
+      "trials\\p0001_SAT_TY_N_A01_r0001\\attempt_001_efe33fb4\\metadata.json": "0e2274a280dad95cf561dc4820f13575bcb91304700e93c9bae50fb4461cabf2",
+      "trials\\p0001_SAT_TY_N_A04_r0001\\attempt_001_29dc559b\\telemetry.txt": "9c22f853385cf703309fd7f085c5b071a1e97cafe13c6d4f247aa7a2230818ae",
+      "trials\\p0001_SAT_TY_N_A04_r0001\\attempt_001_29dc559b\\commands.txt": "b354d9b8342f57f4c15a51d713af45b450eefd05498893c1dec5c94dba6b2b14",
+      "trials\\p0001_SAT_TY_N_A04_r0001\\attempt_001_29dc559b\\quality.json": "052f977bd7c9f2e4320187d32bce6941858a0db598b5e57c6b6f415859a60764",
+      "trials\\p0001_SAT_TY_N_A04_r0001\\attempt_001_29dc559b\\metadata.json": "f44c9d9a9e9bcc9987dd823af41926b64084dfdbd6ecc3f4d012104db3487ffa",
+      "trials\\p0001_SAT_TZ_P_A01_r0001\\attempt_001_d9bb1c3c\\telemetry.txt": "7bbe7e2310b06d67928bf897fb4be16560205d7ec9c8fd85b3b926278d6cedc6",
+      "trials\\p0001_SAT_TZ_P_A01_r0001\\attempt_001_d9bb1c3c\\commands.txt": "6a9b4c6bef2b75562639f8fadc12ec0e4796cc75e0a7dd12e93238ae67f850f2",
+      "trials\\p0001_SAT_TZ_P_A01_r0001\\attempt_001_d9bb1c3c\\quality.json": "79e7fb5adf816e5b636df6521f127366b5d8b1e84e19431bd5850af648bf0693",
+      "trials\\p0001_SAT_TZ_P_A01_r0001\\attempt_001_d9bb1c3c\\metadata.json": "081f376f4f55d80713f73fc0bb7f391fdb596f73bc21e6e05ad94e99cd63c6b1",
+      "trials\\p0001_SAT_TZ_P_A04_r0001\\attempt_001_13590880\\telemetry.txt": "d317b8e51b3af4e46eef28840156202e55d2a5213542171d89e37df38c5a7b13",
+      "trials\\p0001_SAT_TZ_P_A04_r0001\\attempt_001_13590880\\commands.txt": "851ea4d4a8822723d55b1f1fa362bdb245e7f0d8db06b0b9633c976995342d0d",
+      "trials\\p0001_SAT_TZ_P_A04_r0001\\attempt_001_13590880\\quality.json": "4525a2a8b082338baa21a5eeffde847cd6aecb1d2c1efab6dd905cc6db190f7f",
+      "trials\\p0001_SAT_TZ_P_A04_r0001\\attempt_001_13590880\\metadata.json": "4977d18a05ec94451af00ade7fd7a201d9bdbb890f488be94dca3debc5e146d3",
+      "trials\\p0001_SAT_TZ_N_A01_r0001\\attempt_001_af94250e\\telemetry.txt": "7a7103d00ee1508d6e88564f0e139943e06a30926386e5c09644d660fb863b7c",
+      "trials\\p0001_SAT_TZ_N_A01_r0001\\attempt_001_af94250e\\commands.txt": "dc3de751d3b4984ed2158a95c0564b54bd8a6ef5640f50e3048ae4911cbddf73",
+      "trials\\p0001_SAT_TZ_N_A01_r0001\\attempt_001_af94250e\\quality.json": "4fce5b5d200e411c73a3e13f07701c797eb1becb924ca2db01d1362cc2207394",
+      "trials\\p0001_SAT_TZ_N_A01_r0001\\attempt_001_af94250e\\metadata.json": "c954cbbe02408729c4c5bba595c08d6c18e52e1307e1100c9820bd00fddeeb54",
+      "trials\\p0001_SAT_TZ_N_A04_r0001\\attempt_001_5200e4cb\\telemetry.txt": "7d338143ef6db83a7916297ed578ad4b02494bbfe2b843bf9f91578939bcbb63",
+      "trials\\p0001_SAT_TZ_N_A04_r0001\\attempt_001_5200e4cb\\commands.txt": "63690307a283ca58cb32e63a40bd386187f666c14eaae7f5b6565ae60898b024",
+      "trials\\p0001_SAT_TZ_N_A04_r0001\\attempt_001_5200e4cb\\quality.json": "b41446d39442bb3d9c425610a499d3629107e16ebd9fd9ad7c7108eb8e669086",
+      "trials\\p0001_SAT_TZ_N_A04_r0001\\attempt_001_5200e4cb\\metadata.json": "bc6fb596b24d090be69cc9d3d2a876f019c547742d6d53095abe0ba0e79ec9b1",
+      "trials\\p0001_SAT_RX_P_A01_r0001\\attempt_001_6fc4c5b4\\telemetry.txt": "b500e12c5f7f18445bec6ac1347589fc4ee2fa911b66b5dc7309527e97cd5446",
+      "trials\\p0001_SAT_RX_P_A01_r0001\\attempt_001_6fc4c5b4\\commands.txt": "e74423d01e93aaca211940dab1b750c61d738b74a02699c04296a2d5c644c604",
+      "trials\\p0001_SAT_RX_P_A01_r0001\\attempt_001_6fc4c5b4\\quality.json": "15a30d2d477067b274854e303e95097b17ca35d1bcbe077d67e461ab93f6bd2a",
+      "trials\\p0001_SAT_RX_P_A01_r0001\\attempt_001_6fc4c5b4\\metadata.json": "9abc7ee43cbe27646a1549afcc83d09d4cbc57449f8781ab398db43df28b85ce",
+      "trials\\p0001_SAT_RX_P_A04_r0001\\attempt_001_9a43d7a0\\telemetry.txt": "516d8bb66411d385aa79edb8d79e7b83beb59b8b662a4cb59a148a3334fae760",
+      "trials\\p0001_SAT_RX_P_A04_r0001\\attempt_001_9a43d7a0\\commands.txt": "4f8b74f24e43565cfd5c847a68f6addc68b73e5d580a2d69c599e28c3abe3e4e",
+      "trials\\p0001_SAT_RX_P_A04_r0001\\attempt_001_9a43d7a0\\quality.json": "4b8b1544bf9d8f0df8256f873085470d6e55ef9c0855f5b6e88bdeba510ccbfa",
+      "trials\\p0001_SAT_RX_P_A04_r0001\\attempt_001_9a43d7a0\\metadata.json": "ca3725cadf1c6747ca46689368dffff056b2133df8c919f457e2cdd8ed6097fa",
+      "trials\\p0001_SAT_RX_N_A01_r0001\\attempt_001_37245789\\telemetry.txt": "d8678d12b33311ce489336ff2b8fb5742b2142e646208107cc437ca3fc1ce436",
+      "trials\\p0001_SAT_RX_N_A01_r0001\\attempt_001_37245789\\commands.txt": "aa32eab24d633eee1348b220e6118d2800ba983634d5c43435ed3c5d15c23add",
+      "trials\\p0001_SAT_RX_N_A01_r0001\\attempt_001_37245789\\quality.json": "dc1136a2e26a3a8508bfae64ccf810db9e0350fd726c0cc53f2689ac64f3ca4d",
+      "trials\\p0001_SAT_RX_N_A01_r0001\\attempt_001_37245789\\metadata.json": "3f350e9dd051aba7a989d59ef50682c4613b2a28db3f74b7aed7dc2397905c07",
+      "trials\\p0001_SAT_RX_N_A04_r0001\\attempt_001_3fc9f106\\telemetry.txt": "fe9ca74e563b047929d469bba0ec0b0caf7dcd909bc8e8b2e8be3d70e9c508c7",
+      "trials\\p0001_SAT_RX_N_A04_r0001\\attempt_001_3fc9f106\\commands.txt": "05725e19fc4d0758bb113f88df1bf503d104bf0e762b52e912c138a2d98f1306",
+      "trials\\p0001_SAT_RX_N_A04_r0001\\attempt_001_3fc9f106\\quality.json": "d6e887ff35e3581af7de75a9093e0619ce87f83520c06aa067f48c2a067e8733",
+      "trials\\p0001_SAT_RX_N_A04_r0001\\attempt_001_3fc9f106\\metadata.json": "f229f573f7990afbab535df59617cb51e9c454b215faa7ecbc4dd6699e68169a",
+      "trials\\p0001_SAT_RY_P_A01_r0001\\attempt_001_f6fe603d\\telemetry.txt": "5be975f8f1d4a92f1b8f1b3f7e72551ab6686c451eccfd07c476633737437016",
+      "trials\\p0001_SAT_RY_P_A01_r0001\\attempt_001_f6fe603d\\commands.txt": "4385dc52bd6787c57976344c713325c10d183d211e02b366b5dbb7c8bf1370c8",
+      "trials\\p0001_SAT_RY_P_A01_r0001\\attempt_001_f6fe603d\\quality.json": "0e1ff232479ead8cedd2f8b8eed1a930033ef1118ad37c0407d12248a6f97635",
+      "trials\\p0001_SAT_RY_P_A01_r0001\\attempt_001_f6fe603d\\metadata.json": "d4dddc766cb5152352f60ca11366adad8fa30f3ad8f4539fcdc43722220aa532",
+      "trials\\p0001_SAT_RY_P_A04_r0001\\attempt_001_9423ab22\\telemetry.txt": "6f96eeb40d31f3d29a7fb6b0a9f96cc018fce1ddb92f421faad45e77bb4bad30",
+      "trials\\p0001_SAT_RY_P_A04_r0001\\attempt_001_9423ab22\\commands.txt": "b93ca47f4168349c65c269290d46056da77f8796871701aaedf2ba9d30c9b4bc",
+      "trials\\p0001_SAT_RY_P_A04_r0001\\attempt_001_9423ab22\\quality.json": "298fbc431268b075e276261fb0f874c248fe63d90bcf1a13b6368e5ab2a6a399",
+      "trials\\p0001_SAT_RY_P_A04_r0001\\attempt_001_9423ab22\\metadata.json": "4bc9a081cb548d98d74032a5a4c782da908557c29c5e294af0c6b9bc813f2a01",
+      "trials\\p0001_SAT_RY_N_A01_r0001\\attempt_001_33e3877b\\telemetry.txt": "e2dbd4a2ea31cf0b3e34b04c2e25ead349332c9db5704aa3784f10babf91dc97",
+      "trials\\p0001_SAT_RY_N_A01_r0001\\attempt_001_33e3877b\\commands.txt": "0170fcf90eec3cd431874b578578fd8337ddb08794f881861c5011f2a13f7dc2",
+      "trials\\p0001_SAT_RY_N_A01_r0001\\attempt_001_33e3877b\\quality.json": "9f186ae824fb1882df68e32de77c8ee3cae337bc3b2fef50761da2e181d8655d",
+      "trials\\p0001_SAT_RY_N_A01_r0001\\attempt_001_33e3877b\\metadata.json": "173c77ef0b0ec72f2014c90143720a78e9cc82db1dfeab88705ea670f8ac7d3e",
+      "trials\\p0001_SAT_RY_N_A04_r0001\\attempt_001_12e6df67\\telemetry.txt": "e7bf90a6f311683ec4b26390261061e41ecf62ae06ed7f250e1273f6b3ec710a",
+      "trials\\p0001_SAT_RY_N_A04_r0001\\attempt_001_12e6df67\\commands.txt": "a2192d638ef6f25c0d052d7ead623a45064f48dd39f13ccea6f45830a98c5f09",
+      "trials\\p0001_SAT_RY_N_A04_r0001\\attempt_001_12e6df67\\quality.json": "9ea709866cf77b45b826ffb1c674350589bdb2e5d82f42b17843c80edb077ca7",
+      "trials\\p0001_SAT_RY_N_A04_r0001\\attempt_001_12e6df67\\metadata.json": "1d6d323ff541249668a1c782cddfbf4dba3a0961a44fa20a51af362b933adf43",
+      "trials\\p0001_SAT_RZ_P_A01_r0001\\attempt_002_2a058195\\telemetry.txt": "e1a7f35d0c82b69fb74228630eeb28db9b67e9ecef7c50a654bb1aaf0a823bcb",
+      "trials\\p0001_SAT_RZ_P_A01_r0001\\attempt_002_2a058195\\commands.txt": "01a055025899e1e1e855ce6649d3c7cd4e328869d0dde9cfd2bf505468a81522",
+      "trials\\p0001_SAT_RZ_P_A01_r0001\\attempt_002_2a058195\\quality.json": "41e5efbd4c714669d65f703fcd244163b33be6f246e1b7e7c2376b9cbaab0853",
+      "trials\\p0001_SAT_RZ_P_A01_r0001\\attempt_002_2a058195\\metadata.json": "e0c360df2f09dccae3d7b687c61ed510f099e02c72ba016ba8206a3277cca58d",
+      "trials\\p0001_SAT_RZ_P_A04_r0001\\attempt_001_d5c12aef\\telemetry.txt": "ab69c46691c51498f4ce2250774e7294589da117641ff8e7038b09c509b85f64",
+      "trials\\p0001_SAT_RZ_P_A04_r0001\\attempt_001_d5c12aef\\commands.txt": "c6d82f07b6c72d631a0b383a2219e90f54490b74c19b59a63f88b6e0b5c19ddf",
+      "trials\\p0001_SAT_RZ_P_A04_r0001\\attempt_001_d5c12aef\\quality.json": "3b399afecd3d97fbcb0795585132589540b7017d1f6fa4bf54abb2bc930561e3",
+      "trials\\p0001_SAT_RZ_P_A04_r0001\\attempt_001_d5c12aef\\metadata.json": "a64a5886957f1e720f28e79dac17b9b10f958320a23939f25c2b71424c8da029",
+      "trials\\p0001_SAT_RZ_N_A01_r0001\\attempt_001_25195c46\\telemetry.txt": "9385b0eab42ad69b95bec0a68233e9d4aa095e3b582ffcfd646570faa993bd42",
+      "trials\\p0001_SAT_RZ_N_A01_r0001\\attempt_001_25195c46\\commands.txt": "3ca47b1bbdc2bc2ef8de88836740216bb3056d8a663ce9c648d109b0c963325f",
+      "trials\\p0001_SAT_RZ_N_A01_r0001\\attempt_001_25195c46\\quality.json": "a8d3bdda53ca92c9e2c6d2faca93089558fcf7aadbcd8c11d23af63c95f7a169",
+      "trials\\p0001_SAT_RZ_N_A01_r0001\\attempt_001_25195c46\\metadata.json": "9c8e4e7f91dcd8235e65a5ba5066afd152f871e6613448ebe5629a9b90c28a00",
+      "trials\\p0001_SAT_RZ_N_A04_r0001\\attempt_001_71806f48\\telemetry.txt": "2669d458cc3645c24fd1f46f55554cb3703104213bb8b1761277ee5b33c3cde8",
+      "trials\\p0001_SAT_RZ_N_A04_r0001\\attempt_001_71806f48\\commands.txt": "6a66278032c97291400bb2161fd387e635e5e74d0bf582e99de29ffe6842a855",
+      "trials\\p0001_SAT_RZ_N_A04_r0001\\attempt_001_71806f48\\quality.json": "e41f60725bdcc3e592911a658c9c23783a04753d1361bca34081f0d322f08ed1",
+      "trials\\p0001_SAT_RZ_N_A04_r0001\\attempt_001_71806f48\\metadata.json": "828c7fa3844dd1a856b39f4d8a5929bc9a6170ce201856553a20f9932db62f89",
+      "trials\\p0001_COAST_H22_r0001\\attempt_001_2a67e251\\telemetry.txt": "0aed69b04b9fc51f5bfc521d9231e40b2eda55b4c9270caa2492253963f8a60d",
+      "trials\\p0001_COAST_H22_r0001\\attempt_001_2a67e251\\commands.txt": "bdd73a392ac1417a1841069bbf782bdf6c0c392b6b15a4f57a5bfc7ede5d5e2d",
+      "trials\\p0001_COAST_H22_r0001\\attempt_001_2a67e251\\quality.json": "5a1d0f7af6598b1db776fed9cdfbc223fc1b219be6ec9f67c519feb5399d0339",
+      "trials\\p0001_COAST_H22_r0001\\attempt_001_2a67e251\\metadata.json": "2546c94ca7dd792409556d08d8944c25ab016a9bedd54b2dccca164158c137d4",
+      "trials\\p0001_COAST_H28_r0001\\attempt_001_d98b3868\\telemetry.txt": "fa38e11d8232dfb73b40bd69e47369654a2dad9723542be4a6bc612bf3118497",
+      "trials\\p0001_COAST_H28_r0001\\attempt_001_d98b3868\\commands.txt": "18fe57584b705b8c33add3ed206bc6448e4eebdf86f18c5ecc820fd30e2ba8f7",
+      "trials\\p0001_COAST_H28_r0001\\attempt_001_d98b3868\\quality.json": "d9eb88bc8a50c3933c2bcec7aada42d795fc64b8935be719106cb27ad055ab06",
+      "trials\\p0001_COAST_H28_r0001\\attempt_001_d98b3868\\metadata.json": "81ce8a6c4f0eb32acc22aae3cdc554d996428ad0471eed44458d2d406b37b5ac",
+      "trials\\p0001_COUPLED_01_r0001\\attempt_001_e68e9f01\\telemetry.txt": "500077162cb0d2893f34dcdaf17a455dd1cf7791e3a182181fb31182349c4e04",
+      "trials\\p0001_COUPLED_01_r0001\\attempt_001_e68e9f01\\commands.txt": "a90949fa18cccbbed8db636d43f0ecfd346760857a12c05977fc70e13f8bfe0b",
+      "trials\\p0001_COUPLED_01_r0001\\attempt_001_e68e9f01\\quality.json": "a0a4dd44c4d8208941b71e5ad62dba1179291d5b5e5642fae2aa027282cf447f",
+      "trials\\p0001_COUPLED_01_r0001\\attempt_001_e68e9f01\\metadata.json": "7b06a19178f3510359e45afb20aca9c56d8372ad6a230fbd6573d31671721292",
+      "trials\\p0001_COUPLED_02_r0001\\attempt_001_c289b78a\\telemetry.txt": "eeb5b21713a5d162c7a4034e3e3f6ec2919bb37db3cf15894bce1eea75159ba8",
+      "trials\\p0001_COUPLED_02_r0001\\attempt_001_c289b78a\\commands.txt": "69560a803a9dd7a0499bb38b679afc2122bed8833990ba75af8829674dd6f1dc",
+      "trials\\p0001_COUPLED_02_r0001\\attempt_001_c289b78a\\quality.json": "e25117fb814de8bc70ead0aa59bbe4f75473e94d5c582829566fa984714dfa8c",
+      "trials\\p0001_COUPLED_02_r0001\\attempt_001_c289b78a\\metadata.json": "c64d52e6685d5fe7b08f7892de43154d7591807b7fcb7e4ea90c15a9e97f195d"
+    }
+  },
+  "status": "candidate_requires_independent_validation",
+  "frozen_parameter_sha256": "dac40ca12f435b763e2b4f6417b909be0525e2540cde23c393d08c6ee5a256a9",
+  "validation": {
+    "independent_flights": 0,
+    "testing_flights": 0,
+    "status": "UNAVAILABLE_TRAINING_REPLAY_ONLY"
+  },
+  "fit_review_flags": [
+    "angular: weak columns fixed at prior [12]"
+  ]
+}

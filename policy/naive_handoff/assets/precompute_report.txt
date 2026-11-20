@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "model_sha256": "e278d6f37c82e5e7c32550bd8c4945a65f790f4c552e6a59c8a52f594a014258",
+  "settings_sha256": "416475b2121d35800c81bd2d572ab1ecf3b1541e455e2f0c63c9f55e098057ea",
+  "mission_sha256": "9f6d743a3fa2acce421aa847993f1ba30b2fcdce8b0587275126288de40d9ee3",
+  "reference_sha256": "fdf82b1db8f7863d44bfddef0c1d55acec854ea04953091ad9f9484bcbf3b7c7",
+  "arrival_radius_m": 50.0,
+  "slew_angle_rad": 1.6327891993895256,
+  "forward_request_at_saturation_knee": 0.003665812994499609,
+  "boost_request_at_saturation_knee": 0.0020120813354860506,
+  "solver": {
+    "method": "bounded fixed-axis quadratic setup plus exact reduced fuel",
+    "success": true,
+    "message": "The first-order optimality measure is less than `tol`.",
+    "iterations": 89,
+    "projected_gradient_inf": 6.93832404724537e-12,
+    "selected_duration_s": 9.0,
+    "steps": 90,
+    "angle_rad": 1.6327891993895256,
+    "axis_B": [
+      0.0,
+      -0.9991636160342975,
+      -0.040890932897977926
+    ],
+    "achievable_alpha_positive_rad_s2": 0.09576621675314823,
+    "achievable_alpha_negative_rad_s2": 0.07951646576560405,
+    "minimum_rest_to_rest_time_s": 8.669915463494549,
+    "ideal_terminal_pointing_error_deg": -5.549802739771159e-05,
+    "ideal_terminal_rate_rad_s": 3.992720217687977e-06,
+    "reduced_slew_fuel_kg": 3.7263659608921005,
+    "scope": "Fixed-axis zero initial rate, no angular bias/delay; full model replay follows"
+  },
+  "maximum_thrust_note": "Reference ratios use model knees; full-thrust phases common-scale to a native request cap, preserving six-axis ratios and saturated delivery. Angular corrections share normalization.",
+  "native_qualified": false,
+  "generator_sources_sha256": {
+    "precompute.py": "8cc5e3b17e691cb603a74186c7736800181fc0d5053a4e1b75bb9aee1111d730",
+    "control.py": "2078e206767cce99db1ef989fdb6fd8d0e7337cd366d0910d55c8674ab7b4c74",
+    "accounting.py": "b30b6e3479e0428c522d7922dd8b43fd6bdc5d1e2bf46a19da0412d6a1db0a9b"
+  },
+  "prediction_duration_s": 30.0,
+  "model_handoff": {
+    "elapsed_s": 11.0,
+    "pointing_error_deg": 0.6232126854624985,
+    "angular_rate_rad_s": 0.007297409892539792,
+    "fuel_kg": 4.65721569339307,
+    "position_P_m": [
+      -649.4561686897124,
+      95.77573111255998,
+      -8242.331288155221
+    ],
+    "velocity_P_m_s": [
+      0.017296781718962626,
+      -0.01236827287803376,
+      -0.06220850444817056
+    ]
+  },
+  "integration_refinement": {
+    "max_position_difference_m": 5.694189603736999e-08,
+    "max_rate_difference_rad_s": 1.7115814184828078e-14
+  },
+  "precompute_wall_s": 2.8590000000003783
+}

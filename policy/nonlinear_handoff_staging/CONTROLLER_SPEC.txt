@@ -1,0 +1,110 @@
+NONLINEAR_HANDOFF_STAGING | mathematical/execution contract | 2026-11-17
+
+PROBLEM
+One fixed-duration nonlinear trajectory, all six channels available throughout.
+No prescribed boost, slew, coast, or acceleration segments. An optimizer may
+choose such behavior, but no segment schedule constrains the solution.
+No obstacle avoidance or online optimization is included in this policy.
+
+MODEL
+ROOT/nominal_model.json, schema public_request_mean_allocation_6dof_v1, through
+ROOT/system_identification/model.py. No old clone, other policy, private truth,
+sim configuration edits, or native-source edits. The JSON supplies the embedded
+jet matrix, gains, gravity, offsets, and delays. Its fitted mean period is NOT a
+confirmed native timestep. Reporting/command delays remain in the prediction.
+State: [p_C_P(3),v_C_P(3),passive q_PB_xyzw(4),omega_B(3)].
+Public input: [linear body requests(3),angular body requests(3)].
+
+REFERENCE
+p0 is the model's initially REPORTED point, including the fitted body offset.
+xf is the nearest point on the official 50 m target sphere.
+n=(xf-p0)/norm(xf-p0); pd=p0+distance_m*n.
+qd is the shortest rotation of initial attitude placing body +X along n.
+Roll weight defaults to zero. Terminal actual LOS is evaluated from p(T) to xf.
+omega_ref=0. Velocity is FREE by default: both velocity Q groups are zero.
+Setting velocity weights requires an explicit forward_velocity_m_s reference.
+
+EXACT OBJECTIVE
+J = sum_{k=0}^{N-1} dt*(e_k' Q e_k + z_k' R z_k) + e_N' Q_final e_N.
+e=[reported_position-pd, latent_velocity-vd, physical quaternion log error,
+   body angular velocity]. Errors use SI units (m,m/s,rad,rad/s).
+Quaternion log error uses shortest q/-q equivalence, not raw quaternion subtraction.
+Q/Q_final have named diagonal blocks. R weights six NORMALIZED public requests:
+public_u_j = input_scale_j*z_j. input_scale_j is the smaller signed-axis model
+saturation knee, computed from the current JSON and printed in the manifest.
+This variable scaling is part of the declared cost, not an identity actuation map.
+
+CANONICAL INPUT COORDINATES
+Let lambda(u) be the unchanged minimum-sum nonnegative allocation LP solution,
+h the fitted period. For peak(lambda)<=h and legal request norms, native-model
+base acceleration is exactly u/h. Any saturated mean response has an equivalent
+canonical request h*base with peak<=h (subject to native LP numerical tie behavior).
+The NLP uses u/h in its smooth dynamics and enforces the EXACT native LP peak
+feasibility. These are canonical command coordinates, not free jet actuation or
+independent acceleration boxes. R>0 favors the smaller equivalent request.
+Infeasible NLP iterates are mathematical candidates, not claimed physical flights.
+Every exported candidate is independently replayed through the ORIGINAL model's
+clip/LP/max normalization. Failure of that equivalence rejects the export.
+
+ENDPOINT / ACCEPTANCE
+distance_m defines a SOFT reference. No hard position constraint by default.
+An optional terminal_position_tolerance_m explicitly enables a position constraint.
+Pointing tolerance defaults to 2% of the requested initial turn, about 1.87 deg
+for the supplied 93.55 deg initial misalignment. terminal_pointing_deg can override.
+This percentage is NOT applied to Phobos-centered position or raw quaternion
+components. Target angular rate is zero, so its tolerance is an explicit absolute
+terminal_rate_rad_s=0.005, not a percentage of zero.
+Last nominal interval is constrained to maximum pure +X mean thrust and zero
+angular request, using its native-equivalent saturation-knee command.
+Maximum thrust is an input requirement; maximum terminal velocity is not optimized.
+
+NUMERICAL METHOD
+Direct multiple shooting, CasADi/IPOPT. Exact smooth-region Lagrangian curvature;
+native LP derivatives use the current active basis, with finite-difference
+fallback at degeneracy. Allocation is piecewise smooth; no global optimum is
+certified. A separately reported stationary local solution requires the solver's
+convergence/constraint checks. Default accept_verified_candidate=true also permits
+nonstationary candidates after the user's relaxed-accuracy instruction. These are
+explicitly labeled replay_verified_nonstationary_candidate, never called an optimum.
+The best feasible solver iterate is retained; an initial feasible seed is separately
+labeled if no verified improvement is found. No silent time extension or solver
+switch to a different controller/objective occurs.
+
+PREPARATION VALIDATION
+Original JSON/backend replay at .01 s and refined .005 s propagation; check
+terminal pointing/rate/optional position, public request norm limits, and defects
+against NLP nodes. These are model checks, not independent physical validation.
+The original official impulse fuel law is used only for accounting; quadratic R
+is NOT fuel. Exact public Stats/FuelUsed governs simulator-run comparison.
+
+RUNTIME
+One solver-produced feedforward reference + time-varying LQR error feedback.
+Feedback uses 12 physical state errors plus six previous-request deviations, so
+separate input delays enter its linearization. It is a TRAJECTORY TRACKER, not a
+standalone fixed-gain LQR regulator or an online nonlinear replanner.
+Tracker Q/Q_final use the design blocks with explicit position multiplier .01
+and rate multiplier 100 by default; attitude weights and R remain unchanged.
+These separately named feedback settings do not change the offline objective.
+Input Jacobians for tracking centrally difference the ORIGINAL saturated map;
+they do not use the canonical NLP's feasible-side derivative at saturation.
+Reference/gains are precomputed; flight imports NumPy only. Public SDK I/O stays
+on the existing controller thread. Feedback corrections/norms are bounded as
+declared in settings.json. Real endpoint errors are recorded separately from
+offline constraints; no zero-overshoot or native tolerance guarantee is claimed.
+At the endpoint, position tracking ENDS. The declared continuation is full +X
+with steady discrete-LQR pointing/rate damping; no return toward staging pd.
+Angular corrections share native normalization and may reduce forward delivery.
+The full-thrust six-vector is common-scaled to one native norm cap, preserving
+its translation/rotation ratios. The simulator/native actuator is unchanged.
+No pose/radar freshness abort, native stop, role selection, or restart is added.
+Arrival or an explicitly configured test duration sends zero and keeps the native
+controller connected. Zero thrust does not brake. Operator closes the native GUI.
+
+ADAPTATION
+One settings.json: design and feedback/solver changes require precompute.py --select.
+Execution label/status period/test cutoff do NOT invalidate the solved trajectory.
+Preparation may warm-start from its previous cache but all controls remain decision
+variables. Changed settings/initial data/model are recorded and fingerprinted.
+Unchanged caches are reused. Feedback-only edits rebuild gains after replay,
+without another trajectory solve. --force requests reoptimization even unchanged.
+Native testing and first-order optimization status remain distinct in every report.

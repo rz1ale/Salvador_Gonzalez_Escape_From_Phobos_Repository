@@ -1,0 +1,744 @@
+{
+  "schema_version": 1,
+  "mode": "automatic",
+  "manual_session": "continue",
+  "entry": "system_identification/campaigns/identification.py",
+  "parameters": {
+    "settings_file": "system_identification/campaigns/settings.json"
+  },
+  "model": null,
+  "dependencies": [
+    "system_identification/campaigns/settings.json",
+    "system_identification/__init__.py",
+    "system_identification/campaigns/__init__.py",
+    "system_identification/campaigns/flight_math.py"
+  ],
+  "output_root": "system_identification/data_sets",
+  "schedule": {
+    "cases": [
+      {
+        "id": "HELD_01",
+        "parameters": {
+          "family": "validation",
+          "split": "validation",
+          "patterns": [
+            [
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              -1,
+              -1,
+              -1,
+              -1,
+              1,
+              1
+            ],
+            [
+              -1,
+              1,
+              -1,
+              1,
+              -1,
+              1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              1,
+              1,
+              -1
+            ],
+            [
+              -1,
+              1,
+              1,
+              -1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              1
+            ],
+            [
+              1,
+              1,
+              -1,
+              -1,
+              1,
+              -1
+            ]
+          ],
+          "segment_s": 0.45,
+          "base_request": [
+            0.0008,
+            0.0011,
+            -0.0009,
+            0.0004,
+            -0.00035,
+            0.00045
+          ],
+          "attitude_offset_rad": [
+            -0.04,
+            0.0,
+            0
+          ]
+        }
+      },
+      {
+        "id": "HELD_02",
+        "parameters": {
+          "family": "validation",
+          "split": "validation",
+          "patterns": [
+            [
+              -1,
+              -1,
+              -1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              -1,
+              1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              -1,
+              1,
+              1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              1,
+              -1,
+              -1,
+              -1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              -1,
+              1,
+              -1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              -1,
+              -1,
+              1
+            ]
+          ],
+          "segment_s": 0.45,
+          "base_request": [
+            0.0008,
+            0.0011,
+            -0.0009,
+            0.0004,
+            -0.00035,
+            0.00045
+          ],
+          "attitude_offset_rad": [
+            0.0,
+            0.05,
+            0
+          ]
+        }
+      },
+      {
+        "id": "HELD_03",
+        "parameters": {
+          "family": "validation",
+          "split": "validation",
+          "patterns": [
+            [
+              -1,
+              1,
+              -1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              1,
+              1,
+              -1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              -1,
+              -1,
+              1
+            ],
+            [
+              -1,
+              1,
+              -1,
+              -1,
+              1,
+              1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              1,
+              1,
+              -1
+            ]
+          ],
+          "segment_s": 0.45,
+          "base_request": [
+            0.0008,
+            0.0011,
+            -0.0009,
+            0.0004,
+            -0.00035,
+            0.00045
+          ],
+          "attitude_offset_rad": [
+            0.04,
+            -0.05,
+            0
+          ]
+        }
+      },
+      {
+        "id": "HELD_04",
+        "parameters": {
+          "family": "validation",
+          "split": "validation",
+          "patterns": [
+            [
+              1,
+              1,
+              -1,
+              -1,
+              -1,
+              -1
+            ],
+            [
+              -1,
+              -1,
+              -1,
+              1,
+              -1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              -1,
+              1,
+              -1,
+              -1,
+              1,
+              1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              1,
+              1,
+              -1
+            ],
+            [
+              -1,
+              1,
+              1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              1
+            ]
+          ],
+          "segment_s": 0.45,
+          "base_request": [
+            0.0008,
+            0.0011,
+            -0.0009,
+            0.0004,
+            -0.00035,
+            0.00045
+          ],
+          "attitude_offset_rad": [
+            -0.04,
+            0.0,
+            0
+          ]
+        }
+      },
+      {
+        "id": "HELD_05",
+        "parameters": {
+          "family": "validation",
+          "split": "testing",
+          "patterns": [
+            [
+              -1,
+              -1,
+              1,
+              -1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              -1,
+              1,
+              -1,
+              1,
+              -1,
+              1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              1,
+              1,
+              -1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              1,
+              1,
+              -1,
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1,
+              -1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              -1,
+              -1,
+              1
+            ]
+          ],
+          "segment_s": 0.55,
+          "base_request": [
+            0.0008,
+            0.0011,
+            -0.0009,
+            0.0004,
+            -0.00035,
+            0.00045
+          ],
+          "attitude_offset_rad": [
+            0.0,
+            0.05,
+            0
+          ]
+        }
+      },
+      {
+        "id": "HELD_06",
+        "parameters": {
+          "family": "validation",
+          "split": "testing",
+          "patterns": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              -1,
+              1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1,
+              1,
+              -1,
+              -1,
+              1
+            ],
+            [
+              1,
+              1,
+              -1,
+              -1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              1
+            ],
+            [
+              -1,
+              -1,
+              -1,
+              -1,
+              1,
+              1
+            ],
+            [
+              -1,
+              1,
+              -1,
+              1,
+              1,
+              -1
+            ]
+          ],
+          "segment_s": 0.55,
+          "base_request": [
+            0.0008,
+            0.0011,
+            -0.0009,
+            0.0004,
+            -0.00035,
+            0.00045
+          ],
+          "attitude_offset_rad": [
+            0.04,
+            -0.05,
+            0
+          ]
+        }
+      },
+      {
+        "id": "HELD_07",
+        "parameters": {
+          "family": "validation",
+          "split": "testing",
+          "patterns": [
+            [
+              -1,
+              1,
+              -1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1,
+              1,
+              -1,
+              -1,
+              1
+            ],
+            [
+              1,
+              1,
+              -1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              -1,
+              -1,
+              1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              -1,
+              -1,
+              -1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              -1,
+              1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "segment_s": 0.55,
+          "base_request": [
+            0.0008,
+            0.0011,
+            -0.0009,
+            0.0004,
+            -0.00035,
+            0.00045
+          ],
+          "attitude_offset_rad": [
+            -0.04,
+            0.0,
+            0
+          ]
+        }
+      },
+      {
+        "id": "HELD_08",
+        "parameters": {
+          "family": "validation",
+          "split": "testing",
+          "patterns": [
+            [
+              1,
+              1,
+              -1,
+              -1,
+              1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              -1
+            ],
+            [
+              -1,
+              -1,
+              -1,
+              -1,
+              1,
+              1
+            ],
+            [
+              -1,
+              1,
+              -1,
+              1,
+              -1,
+              1
+            ],
+            [
+              -1,
+              -1,
+              1,
+              1,
+              1,
+              -1
+            ],
+            [
+              -1,
+              1,
+              1,
+              -1,
+              -1,
+              -1
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              1
+            ]
+          ],
+          "segment_s": 0.55,
+          "base_request": [
+            0.0008,
+            0.0011,
+            -0.0009,
+            0.0004,
+            -0.00035,
+            0.00045
+          ],
+          "attitude_offset_rad": [
+            0.0,
+            0.05,
+            0
+          ]
+        }
+      }
+    ],
+    "repetitions_per_case": 1,
+    "repeat_set": {
+      "mode": "fixed",
+      "count": 1
+    },
+    "order": "listed"
+  },
+  "retry": {
+    "max_retries_per_trial": 0,
+    "retry_on": [
+      "startup_timeout",
+      "backend_disconnect",
+      "process_exit"
+    ],
+    "on_exhausted": "pause"
+  },
+  "on_task_failure": "pause",
+  "limits": {
+    "startup_wall_s": 150,
+    "heartbeat_wall_s": 45,
+    "clock_stall_wall_s": 90,
+    "attempt_wall_s": 480,
+    "shutdown_wall_s": 30,
+    "task_sim_s": null
+  },
+  "logging": {
+    "state_period_s": 0.2
+  }
+}

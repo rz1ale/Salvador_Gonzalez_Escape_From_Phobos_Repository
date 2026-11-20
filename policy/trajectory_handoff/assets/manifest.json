@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "model_sha256": "e278d6f37c82e5e7c32550bd8c4945a65f790f4c552e6a59c8a52f594a014258",
+  "trajectory_sha256": "b6da6fdfb646787b989200d0cea1e7e70e272e3352e2640e9ab69ec58e64fdc2",
+  "static_contract": {
+    "configuration_sha256": "a064b697ec1a50b4a796eb15d18f931aa7c1941b33508645787af8cf51371eb5",
+    "source_sha256_lf": {
+      "Scoring": "aa59d4bfa07d00bbf187de225fdfd07bd7631da6f0438ffc17fec49a00d2214c",
+      "JetSelectionActuator": "3b94557faa254142f4830cc6c2197df92f7cfe9eab06f8f18bd666653f12fcb7",
+      "Radar": "dd48398db5ffa29221d3a03902db9250e86df0f8f1eb9b53f94fc061053a8061"
+    },
+    "jet_table_sha256": "da8c76cd556e828d568eec83d39da40eab7b6b94307a9b524fc22d75046d6de3",
+    "radar_num_debris": 200,
+    "spawn_num_debris": 500,
+    "organizer_authenticity_established": false
+  },
+  "score_constants": {
+    "NominalTime_s": 120.0,
+    "NominalFuel_kg": 75.0,
+    "DamageThreshold_J": 209200.0,
+    "KeepOutRadius_m": 50.0
+  },
+  "target_P_m": [
+    -850.0,
+    120.0,
+    -9530.0
+  ],
+  "initial_state": [
+    -650.890463317571,
+    95.29300481707836,
+    -8241.174096456481,
+    0.0,
+    -0.0,
+    0.0,
+    0.9848614817870476,
+    0.16855626602590104,
+    -0.03977804037301114,
+    0.007372542282663705,
+    -0.0,
+    0.0,
+    -0.0
+  ],
+  "request_norm_caps": [
+    0.5,
+    0.05
+  ],
+  "request_scales": [
+    0.0020277508798678214,
+    0.0020253388991192302,
+    0.0020120813354863503,
+    0.0026061940995639812,
+    0.0016052948494398257,
+    0.0016906042230878816
+  ],
+  "objective": "minimize -100*NominalTime_s/T + 100*fuel_kg/NominalFuel_kg; damage=0 optimistic",
+  "terminal_constraints": "reported-origin target radius only; free terminal velocity and attitude",
+  "geometry": "local launch plane only; no offline obstacle map or terrain certificate",
+  "feedback": "coupled 12-state finite-horizon LQR; frozen 0.1 s input-delay approximation B+D",
+  "online_value": "cached remaining-score tangent; NLP multipliers not treated as a stationary value function; LQR curvature is a stabilizing regularizer, not the exact score Hessian",
+  "solver": {
+    "duration": 253.9327553537309,
+    "converged": false,
+    "status": "Maximum_Iterations_Exceeded",
+    "constraint_violation": 1.6339579796947196e-06,
+    "wall_s": 52.74808362699969,
+    "substeps": 24,
+    "stages": 28,
+    "ad_step_max_abs_error": 1.0842021724855044e-19,
+    "parameterization": "nonnegative jet lift with canonical native-peak constraint",
+    "transcription": "single",
+    "dual_infeasibility": 450.10718107601474,
+    "candidate_model_sha256": "e278d6f37c82e5e7c32550bd8c4945a65f790f4c552e6a59c8a52f594a014258"
+  },
+  "validation": {
+    "canonical_replay": true,
+    "integration_max_step_s": 0.01,
+    "terminal_distance_m": 48.51804404847824,
+    "minimum_launch_plane_margin_m": 0.1,
+    "max_body_rate_rad_s": 0.15484081728099441,
+    "max_base_allocation_error": 1.734723475976807e-18,
+    "nlp_replay_terminal_pv_error": 0.013898180136973297,
+    "fuel_kg": 34.74939596965297,
+    "score_estimate": 50.924077370026744,
+    "native_qualified": false
+  },
+  "build_versions": {
+    "casadi": "3.7.2",
+    "numpy": "2.3.5"
+  },
+  "export_wall_s": 10.4678253459997,
+  "generator_sha256": "46daf524ac29dd41685fe8cb1248c4949c3e3d5eeb88a088b8a2bcb96c1209f2"
+}

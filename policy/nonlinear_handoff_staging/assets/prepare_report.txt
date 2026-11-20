@@ -1,0 +1,54 @@
+{
+  "solver": {
+    "method": "direct multiple shooting / IPOPT with exact smooth-region Lagrangian curvature",
+    "success": false,
+    "status": "NonIpopt_Exception_Thrown",
+    "objective": 182.29910902240982,
+    "selected_iterate": "solver_final",
+    "iterations": 105,
+    "constraint_violation": 59.02293048644166,
+    "dual_infeasibility": 81.08304575447801,
+    "wall_s": 192.36000000000058,
+    "canonical_symbolic_error": 2.710505431213761e-20,
+    "globally_optimal": false,
+    "all_six_channels_free": true,
+    "programmed_maneuver_segments": false
+  },
+  "validation": {
+    "endpoint": {
+      "pointing_deg": 110.20707005382772,
+      "rate_rad_s": 0.03266621344968418,
+      "position_error_m": 6.916682152447221,
+      "position_P_m": [
+        -652.884825296676,
+        94.71230185501503,
+        -8238.77177579703
+      ],
+      "velocity_P_m_s": [
+        -0.12073952294763023,
+        0.02774645140307647,
+        0.20111975451923106
+      ],
+      "forward_velocity_m_s": -0.17980951557612873
+    },
+    "limits": {
+      "pointing_deg": 1.8710385991912895,
+      "rate_rad_s": 0.005,
+      "position_m": null
+    },
+    "checks": {
+      "pointing": false,
+      "rate": false,
+      "position": true,
+      "trajectory_defects": false,
+      "input_norms": true
+    },
+    "passed": false,
+    "max_nlp_replay_error": 5.519643936520879,
+    "max_refinement_error": 1.737062120810151e-07,
+    "canonical_step_s": 0.01,
+    "refined_step_s": 0.005,
+    "native_qualified": false
+  },
+  "export_verified": false
+}

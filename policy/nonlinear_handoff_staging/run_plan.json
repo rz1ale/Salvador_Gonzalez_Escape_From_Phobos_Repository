@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "mode": "manual",
+  "manual_session": "new_on_open",
+  "entry": "policy/nonlinear_handoff_staging/entry.py",
+  "parameters": {},
+  "model": "nominal_model.json",
+  "dependencies": [
+    "policy/nonlinear_handoff_staging/__init__.py",
+    "policy/nonlinear_handoff_staging/math_core.py",
+    "policy/nonlinear_handoff_staging/flight.py",
+    "policy/nonlinear_handoff_staging/entry.py",
+    "policy/nonlinear_handoff_staging/accounting.py",
+    "policy/nonlinear_handoff_staging/settings.json",
+    "policy/nonlinear_handoff_staging/mission.json",
+    "policy/nonlinear_handoff_staging/assets/reference.npz",
+    "policy/nonlinear_handoff_staging/assets/manifest.json"
+  ],
+  "output_root": "policy/nonlinear_handoff_staging/run_logs",
+  "schedule": {
+    "cases": [
+      {
+        "id": "NONLINEAR_HANDOFF_STAGING",
+        "parameters": {}
+      }
+    ],
+    "repetitions_per_case": 1,
+    "repeat_set": {
+      "mode": "fixed",
+      "count": 1
+    },
+    "order": "listed"
+  },
+  "retry": {
+    "max_retries_per_trial": 0,
+    "retry_on": [
+      "startup_timeout",
+      "backend_disconnect",
+      "simulation_clock_stall"
+    ],
+    "on_exhausted": "pause"
+  },
+  "on_task_failure": "continue",
+  "limits": {
+    "startup_wall_s": 150,
+    "heartbeat_wall_s": 45,
+    "clock_stall_wall_s": 90,
+    "attempt_wall_s": null,
+    "shutdown_wall_s": 30,
+    "task_sim_s": null
+  },
+  "logging": {
+    "state_period_s": 0.2
+  }
+}
